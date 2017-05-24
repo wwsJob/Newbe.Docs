@@ -36,12 +36,10 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we'll help you sort it out.
 
+<!-- 网易云跟帖 BEGIN -->
 
-
-<div id="cloud-tie-wrapper" class="cloud-tie-wrapper">
+ <div id="cloud-tie-wrapper" class="cloud-tie-wrapper">
 </div>
-
-
 
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js">
 </script>
@@ -58,3 +56,9 @@ var cloudTieConfig = {
 var yunManualLoad = true;
 Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
+
+ <!-- 网易云跟帖 END --> <!-- CNZZ BEGIN -->
+
+<script type="text/javascript">var cnzz_protocol = ((&quot;https:&quot; == document.location.protocol) ? &quot; https://&quot; : &quot; <a href="http://&quot;);document.write(unescape(&quot;%3Cspan">http://&quot;);document.write(unescape(&quot;%3Cspan</a> id=&#39;cnzz_stat_icon_1262013461&#39;%3E%3C/span%3E%3Cscript src=&#39;&quot; + cnzz_protocol + &quot;s22.cnzz.com/z_stat.php%3Fid%3D1262013461%26online%3D1%26show%3Dline&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));</script>
+
+ <!-- CNZZ END -->
