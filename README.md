@@ -49,9 +49,17 @@ Having trouble with Pages? Check out our [documentation](https://help.github.com
 <script src="yungentie.js" type="text/javascript">
 </script>
 
- <!-- 网易云跟帖 END --> <!-- CNZZ BEGIN -->
+ <!-- CNZZ BEGIN -->
 
 <script src="cnzz.js" type="text/javascript">
 </script>
 
- <!-- CNZZ END -->
+ <!-- JiaThis BEGIN -->
+
+<script src="jiathis.js" type="text/javascript">
+</script>
+
+
+
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?move=0&amp;btn=r4.gif&amp;uid=2134199" charset="utf-8">
+</script>
