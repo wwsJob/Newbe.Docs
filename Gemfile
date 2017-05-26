@@ -1,4 +1,3 @@
 # A sample Gemfile
-source "https://rubygems.org"
-
-gem "jekyll"
+source 'http://rubygems.org'
+gem 'github-pages'
