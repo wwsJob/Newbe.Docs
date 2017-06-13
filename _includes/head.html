@@ -9,17 +9,17 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="shortcut icon" type="image/x-icon" href="assets/i/favicon.ico" media="screen">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/assets/i/favicon.ico" media="screen">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="assets/i/favicon.ico">
+  <link rel="icon" sizes="192x192" href="{{ site.baseurl }}/assets/i/favicon.ico">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Newbe" />
-  <link rel="apple-touch-icon-precomposed" href="assets/i/favicon.ico">
-  <meta name="msapplication-TileImage" content="assets/i/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="{{ site.baseurl }}/assets/i/favicon.ico">
+  <meta name="msapplication-TileImage" content="{{ site.baseurl }}/assets/i/favicon.ico">
   <meta name="msapplication-TileColor" content="#0e90d2">
   <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
   <!-- 腾讯分析 BEGIN-->
   <script type="text/javascript" src="http://tajs.qq.com/stats?sId=62304791" charset="UTF-8"></script>
   <!--腾讯分析 END-->
@@ -37,6 +37,5 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-100658571-1', 'auto');
     ga('send', 'pageview');
-    beatu
   </script>
 </head>
