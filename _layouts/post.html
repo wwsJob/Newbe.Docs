@@ -10,7 +10,7 @@ layout: default
         <p class="am-article-meta blog-text-center">
           <span><a href="#" class="blog-color">{{ page.categories | array_to_sentence_string }}</a></span>-
           <span><a href="#">{{ site.author }} &nbsp;</a></span>-
-          <span><a href="#">{{ page.date }}</a></span>
+          <span><a href="#">{{ page.date | date_to_string }}</a></span>
         </p>
       </div>
       <div class="am-article-bd">
@@ -21,9 +21,9 @@ layout: default
     <div class="am-g blog-article-widget blog-article-margin">
       <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
         <span class="am-icon-tags"> &nbsp;</span>
-        {{% for tag in page.tags%}}
-          <a href="#">{{ tag }}</a>
-        {{% endfor%}}
+        {% for tag in page.tags %}
+          <a href="#">{{ tag  }}</a>
+        {% endfor%}
         <hr>
         {% include contactIcons.html %}
       </div>

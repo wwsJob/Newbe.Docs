@@ -8,8 +8,8 @@ layout: default
     {% for post in site.posts %}
       <article class="am-g blog-entry-article">
         <div class="am-u-lg-12 am-u-md-12 am-u-sm-12 blog-entry-text">
-          <span><a href="" class="blog-color">article &nbsp;</a></span>
-          <span> @amazeUI &nbsp;</span>
+          <span><a href="" class="blog-color">{{ post.categories | array_to_sentence_string }}</a></span>
+          <span> {{ site.author }} &nbsp;</span>
           <span>{{ post.date | date_to_string }}</span>
           <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
           {{ post.excerpt }}
