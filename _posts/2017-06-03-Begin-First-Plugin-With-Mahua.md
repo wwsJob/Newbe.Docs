@@ -46,7 +46,7 @@ tags: Mahua CQP Amanda SDK
 
 新建`MahuaModule.cs`文件，将以下代码复制进去：
 
-<script src="http://git.oschina.net/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview">
+<script src="https://git.oschina.net/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview?title=Newbe.Mahua.Plugins.Parrot.cs">
 </script>
 
 # 生成解决方案
