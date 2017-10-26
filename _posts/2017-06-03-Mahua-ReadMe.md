@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Newbe.Mahua
+title: 你打麻花，谁疼？麻花疼！
 categories: Docs Mahua
 excerpt: >
   Newbe.Mahua致力于开发一套具备高级特性的QQ机器人开发平台：1.一次开发支持多QQ机器人平台。

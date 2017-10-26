@@ -14,3 +14,5 @@ author: Newbe
 markdown: kramdown
 
 exclude: [vendor]
+gems:
+  - jekyll-sitemap

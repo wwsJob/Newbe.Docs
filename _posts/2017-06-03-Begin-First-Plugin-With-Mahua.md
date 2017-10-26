@@ -39,14 +39,14 @@ tags: Mahua CQP Amanda SDK
 
 # 修改`Newbe.Mahua.props`文件
 
-<script src="http://git.oschina.net/yks/codes/0omx6wku19evcg5ibj3hs51/widget_preview">
+<script src="https://git.oschina.net/yks/codes/0omx6wku19evcg5ibj3hs51/widget_preview?title=Newbe.Mahua.props.xml">
 </script>
 
 # 实现插件
 
 新建`MahuaModule.cs`文件，将以下代码复制进去：
 
-<script src="http://git.oschina.net/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview">
+<script src="https://git.oschina.net/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview?title=Newbe.Mahua.Plugins.Parrot.cs">
 </script>
 
 # 生成解决方案
