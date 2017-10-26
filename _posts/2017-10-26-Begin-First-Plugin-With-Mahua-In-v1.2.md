@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 开始第一个插件【适用于v1.0】
+title: 开始第一个插件
 categories: Docs Mahua
 tags: Mahua CQP Amanda SDK
 ---
@@ -15,6 +15,7 @@ tags: Mahua CQP Amanda SDK
 
 - .Net Framework 4.5.2 及以上
 - Visual Studio 2015 update 3 及以上(推荐 2017)
+- powershell 3.0及以上
 
 > 以下内容均采用vs2017作为演示IDE
 
@@ -26,32 +27,35 @@ tags: Mahua CQP Amanda SDK
 
 # 安装nuget包
 
-![安装nuget包]({{ site.baseurl }}/assets/i/20170613-f51fc24f.png)
+[Nuget是什么？点击学习](http://www.cnblogs.com/nizhenghua/p/6422078.html)
 
-打开nuget包管理器，搜索`Mahua`。根据你希望运行的机器人平台安装`Newbe.Mahua.*`的nuget包。
+本SDK是多目标平台的SDK。可以根据你的需求安装对应的nuget包，我们将这些nuget包称为`平台支持包`详细罗列如下：
 
-本示例希望运行在多个平台上，因此安装以下nuget包：
+平台                              | nuget包
+------------------------------- | ------------------
+酷Q（<https://cqp.im）>            | Newbe.Mahua.CQP
+Amanda（<http://www.52chat.cc/）> | Newbe.Mahua.Amanda
 
-- Newbe.Mahua.CQP
-- Newbe.Mahua.Amanda
+可以在同一个项目中安装多个`平台支持包`，如此一来，一个项目进行开发，多个平台同时支持。
+
+本示例将安装`Newbe.Mahua.CQP`和`Newbe.Mahua.Amanda`。
+
+除了安装`平台支持包`之外，还可以安装`Newbe.Mahua.Tools.Psake`这个nuget，我们称为`开发工具包`。
+
+`开发工具包`提供了在开发过程中一些必要的自动化过程，例如版本打包等。
 
 > 若想要安装最新的开发版，可以勾选"包含预发行版"。 由于框架在不断演进，因此尽可能早的升级到最新的版本。
-
-# 修改`Newbe.Mahua.props`文件
-
-<script src="http://git.oschina.net/yks/codes/0omx6wku19evcg5ibj3hs51/widget_preview">
-</script>
 
 # 实现插件
 
 新建`MahuaModule.cs`文件，将以下代码复制进去：
 
-<script src="http://git.oschina.net/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview">
+<script src="https://gitee.com/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview?title=Newbe.Mahua.Plugins.Parrot.cs">
 </script>
 
-# 生成解决方案
+# 生成与打包
 
-若出现生成失败请多次重试，多次重试失败请认栽。
+生成项目，然后双击位于项目根目录的`build.bat`文件。
 
 # 复制文件到机器人平台
 
