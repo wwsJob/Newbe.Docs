@@ -3,6 +3,7 @@ layout: post
 title: 开始第一个插件
 categories: Docs Mahua
 tags: Mahua CQP Amanda SDK
+top: true
 ---
 
 本示例将会使用"鹦鹉学舌"这个小插件的实现来演示如何使用`Newbe.Mahua`实现第一个机器人插件。

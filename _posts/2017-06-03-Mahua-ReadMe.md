@@ -6,6 +6,7 @@ excerpt: >
   Newbe.Mahua致力于开发一套具备高级特性的QQ机器人开发平台：1.一次开发支持多QQ机器人平台。
   2.采用framework452开发，支持主流nuget包，充分发挥C#开发优势。3.全面采用依赖注入框架，程序灵活可控适应多变的程序结构。
 tags: Mahua CQP Amanda SDK
+top: true
 ---
 
 Newbe.Mahua致力于开发一套具备以下高级特性的QQ机器人开发平台：
