@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 开始第一个插件【适用于v1.4及以上】
+title: 开始第一个QQ机器人【适用于v1.4及以上】
 categories: Docs Mahua
 tags: Mahua CQP Amanda MPQ SDK
 top: true
