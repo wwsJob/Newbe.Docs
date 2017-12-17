@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 开始第一个插件【适用于v1.0】
+title: 开始第一个插件【适用于v1.0-1.1】
 categories: Docs Mahua
 tags: Mahua CQP Amanda SDK
 ---
