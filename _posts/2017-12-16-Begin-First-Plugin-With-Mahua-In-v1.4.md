@@ -107,12 +107,9 @@ Amanda | <http://www.52chat.cc/>
 
 ## CQP
 
-打开酷Q文件夹下的 `conf\CQP.cfg` 文件，并在文件末尾插入以下两行，即可开启开发者模式。
+按照下图所示，开启开发者模式。
 
-```ini
-[Debug]
-DeveloperMode=1
-```
+![开启开发者模式]({{ site.baseurl }}/assets/i/20171218-001.jpg)
 
 打开插件管理将插件启用。
 
