@@ -1,0 +1,77 @@
+---
+layout: post
+title: Newbe.Mahua 扩展设置中心
+categories: Docs Mahua
+tags: Mahua CQP Amanda MPQ SDK
+mahua: true
+---
+
+本教程将描述，如何使用和扩展`Newbe.Mahua`中的`设置中心`。
+
+# 设置中心
+
+设置中心是SDK提供的，可以进行挂载菜单和界面的管理中心。使用者可以通过实现特定的接口来实现一个跨平台的统一管理界面。
+
+![设置中心]({{ site.baseurl }}/assets/i/20171224-001.png)
+
+# 扩展菜单
+
+## 引入nuget包
+
+<https://www.nuget.org/packages/Newbe.Mahua.Administration/> WPF版设置中心界面。
+
+此nuget包是实现WPF版本的设置中心的必要组件。
+
+最新的VS插件中的项目模板已经包含有此组件，无需特别安装。
+
+## 定义菜单
+
+在项目中实现`Newbe.Mahua.IMahuaMenuProvider`接口中定义的方法，返回菜单项。
+
+> 不要忘记在MahuaModule中注册这个实现类
+
+<script src="https://gitee.com/yks/codes/f5ydhwu81kgmos2rj369i80/widget_preview?title=%E6%89%A9%E5%B1%95%E8%8F%9C%E5%8D%95">
+</script>
+
+## 菜单处理事件
+
+右键点击`MahuaEvents`文件夹，选择 添加->新建项 。 从`Newbe.Mahua`中选取`菜单处理事件`
+
+![新建菜单处理事件]({{ site.baseurl }}/assets/i/20171224-005.png)
+
+实现相关的业务逻辑。
+
+<script src="https://gitee.com/yks/codes/jq7pzxcuv691riegly4f398/widget_preview?title=%E8%8F%9C%E5%8D%95%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6">
+</script>
+
+> 不要忘记在MahuaModule中注册这个实现类
+
+## 启动设置中心
+
+不同的平台点击不同的按钮来启动设置中心。
+
+### CQP
+
+![新建菜单处理事件]({{ site.baseurl }}/assets/i/20171224-003.png)
+
+### Amanda
+
+![新建菜单处理事件]({{ site.baseurl }}/assets/i/20171224-002.png)
+
+### MPQ
+
+![新建菜单处理事件]({{ site.baseurl }}/assets/i/20171224-004.png)
+
+## 完成
+
+至此，就完成了对`设置中心`菜单的扩展。
+
+# 自定义设置中心UI
+
+WPF版设置中心是本SDK提供的基本界面。若在项目中不满足需求，可以通过本节内容实现彻底的自定义。
+
+只要实现`Newbe.Mahua.IMahuaAdministration`，那么在点击平台中的`设置`或`设置中心`按钮，便会调用此接口。
+
+> 若需要采用自定义设置中心UI，需要移除`Newbe.Mahua.Administration`包。
+
+{% include NewbeMahuaNavigation.md %}
