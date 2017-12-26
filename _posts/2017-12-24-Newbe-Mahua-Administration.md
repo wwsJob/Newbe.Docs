@@ -30,7 +30,7 @@ mahua: true
 
 > 不要忘记在MahuaModule中注册这个实现类
 
-<script src="https://gitee.com/yks/codes/f5ydhwu81kgmos2rj369i80/widget_preview?title=%E6%89%A9%E5%B1%95%E8%8F%9C%E5%8D%95">
+<script src="https://gist.coding.net/u/pianzide1117/3d586d49497d4b13b9f1cb9c894d6c8d.js">
 </script>
 
 ## 菜单处理事件
@@ -41,7 +41,7 @@ mahua: true
 
 实现相关的业务逻辑。
 
-<script src="https://gitee.com/yks/codes/jq7pzxcuv691riegly4f398/widget_preview?title=%E8%8F%9C%E5%8D%95%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6">
+<script src="https://gist.coding.net/u/pianzide1117/335b1361112848ae92fd0e876733f713.js">
 </script>
 
 > 不要忘记在MahuaModule中注册这个实现类

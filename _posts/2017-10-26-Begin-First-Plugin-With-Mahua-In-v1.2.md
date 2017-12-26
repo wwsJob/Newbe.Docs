@@ -51,7 +51,7 @@ Amanda（<http://www.52chat.cc/）> | Newbe.Mahua.Amanda
 
 新建`MahuaModule.cs`文件，将以下代码复制进去：
 
-<script src="https://gitee.com/yks/codes/kgvczq07t3wudbo9p2xms86/widget_preview?title=Newbe.Mahua.Plugins.Parrot.cs">
+<script src="https://gist.coding.net/u/pianzide1117/390fdf02a7484e8d94c1c534ce8fda3f.js">
 </script>
 
 # 生成与打包

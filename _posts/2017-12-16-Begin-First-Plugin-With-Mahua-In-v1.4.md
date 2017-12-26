@@ -55,7 +55,7 @@ powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
 
 打开`PluginInfo.cs`文件，按照实际需求和注释内容进行修改。
 
-<script src="https://gitee.com/yks/codes/m9hacduk3j50l2qnr6w7191/widget_preview?title=gistfile1.txt">
+<script src="https://gist.coding.net/u/pianzide1117/6e52809a7eaf407d83d9b2cae50add64.js">
 </script>
 
 # 添加"接收好友消息事件"代码实现
@@ -72,14 +72,14 @@ powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
 
 在`PrivateMessageFromFriendReceivedMahuaEvent.cs`中，调用`IMahuaApi`，将好友消息回发给好友，实现鹦鹉学舌的效果。
 
-<script src="https://gitee.com/yks/codes/cy8n95glp0ja6t3er27mw40/widget_preview?title=%E5%B0%86%E5%A5%BD%E5%8F%8B%E4%BF%A1%E6%81%AF%E4%BC%9A%E5%8F%91%E7%BB%99%E5%A5%BD%E5%8F%8B">
+<script src="https://gist.coding.net/u/pianzide1117/f04cb0d01d20419287db0c0adda4ad25.js">
 </script>
 
 # 在模块中注册事件
 
 打开`MahuaModule.cs`文件，在`MahuaEventsModule`中注册刚刚添加的`PrivateMessageFromFriendReceivedMahuaEvent`。
 
-<script src="https://gitee.com/yks/codes/wlrkzocjhfidng2vytm6s64/widget_preview?title=%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6">
+<script src="https://gist.coding.net/u/pianzide1117/43a9f8b5fec045e590fbb65695a93bd8.js">
 </script>
 
 # 生成与打包

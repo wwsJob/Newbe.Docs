@@ -37,14 +37,14 @@ mahua: true
 
 先看一下需要测试的"鹦鹉学舌"插件的核心逻辑，将消息回发给消息发送者。
 
-<script src="https://gitee.com/yks/codes/cy8n95glp0ja6t3er27mw40/widget_preview?title=%E5%B0%86%E5%A5%BD%E5%8F%8B%E4%BF%A1%E6%81%AF%E4%BC%9A%E5%8F%91%E7%BB%99%E5%A5%BD%E5%8F%8B">
+<script src="https://gist.coding.net/u/pianzide1117/96d1ba0426b545979d3ce62b77193b1b.js">
 </script>
 
 通过项目引用，引用"Newbe.Mahua.Plugins.Parrot"项目。
 
 在新建的测试项目"Newbe.Mahua.Plugins.Parrot.Tests"中新建一个类"ParrotTest"，并填写以下代码：
 
-<script src="https://gitee.com/yks/codes/vwyxfamq7k4lo25hjes9t81/widget_preview?title=ParrotTest">
+<script src="https://gist.coding.net/u/pianzide1117/b1553b31ebbf4284b0e263270722b6fd.js">
 </script>
 
 通过阅读代码的注释，相信真正的勇士已经领会了其中的奥义。
@@ -61,14 +61,14 @@ mahua: true
 
 在测试项目新加一个实现类，来实现上面的业务逻辑。
 
-<script src="https://gitee.com/yks/codes/2kuaomewyxl01cj9zsh6b14/widget_preview?title=PrivateMessageFromFriendReceivedMahuaEventV2">
+<script src="https://gist.coding.net/u/pianzide1117/fac68a41c182460198f8ae132b635ed9.js">
 </script>
 
 显然，这个业务逻辑，至少需要两个单元测试。一个测试的消息中包含"收到回复"，另一个则不包含。
 
 由此，新建"ParrotTestV2"类，并填写以下代码：
 
-<script src="https://gitee.com/yks/codes/8hl0pwimus7bf3yznjda237/widget_preview?title=ParrotTestV2">
+<script src="https://gist.coding.net/u/pianzide1117/33494bc12fc74bf3820e5b5d201f93cc.js">
 </script>
 
 自己手动尝试的过程中可能会出现，没出现"绿"的问题。不要放弃，要么测试错了，要么业务逻辑错误。电脑是不会错的。
