@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Newbe.Mahua.Samples.Sqlite SQLite操作实例
-categories: Docs Mahua ReleaseNodes
+categories: Docs Mahua
 tags: Mahua SDK
 mahua: true
 ---
