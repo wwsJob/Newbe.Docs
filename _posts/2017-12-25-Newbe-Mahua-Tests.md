@@ -105,6 +105,12 @@ mahua: true
 
 ![修改调试启动项目]({{ site.baseurl }}/assets/i/20171225-004.png)
 
+## 调试框架源码
+
+从 1.6 版本开始，使用 VS 2017.5 及以上的版本，将可以实现无需下载源码，便可以调试源码的目的，只需要在VS中打开下图设置即可。
+
+![开启源链接支持]({{ site.baseurl }}/assets/i/20171230-001.png)
+
 至此，调试便可以正常进行了。
 
 {% include NewbeMahuaNavigation.md %}
