@@ -55,19 +55,25 @@ releaseNodes: true
 
 ![开启源链接支持]({{ site.baseurl }}/assets/i/20171230-001.png)
 
-## 增加调用SQLite操作的例子和说明
-
-为了响应社区要求，添加了操作SQLite数据库的教程。
-
-通过 异步操作、依赖注入和单元测试等关键内容，为开发者给出开发建议。
-
-教程链接： [Newbe.Mahua.Samples.Sqlite SQLite操作实例]({{ site.baseurl }}/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html)
-
 ## 增加单元测试与调试SDK的说明
 
 添加了 [Newbe.Mahua 测试与调试]({{ site.baseurl }}/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html) 教程。
 
 教程链接：[Newbe.Mahua 测试与调试]({{ site.baseurl }}/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html)
+
+## 增加 "调用SQLite操作" 的例子和说明
+
+为了响应社区要求，添加了 "调用SQLite操作" 的教程。
+
+通过 异步操作、依赖注入和单元测试等关键内容，为开发者给出开发建议。
+
+教程链接： [Newbe.Mahua.Samples.Sqlite SQLite操作实例]({{ site.baseurl }}/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html)
+
+## 增加 "定时任务" 的例子和说明
+
+为了响应社区要求，添加了 "定时任务" 的教程。
+
+教程链接： [Newbe.Mahua.Samples.LiveGirl 操作定时任务]({{ site.baseurl }}/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html)
 
 # BUG修复
 
