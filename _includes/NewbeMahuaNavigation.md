@@ -2,7 +2,7 @@
 
 ■ 教程链接：
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
 
 {% if post.mahua != true %} {% continue %} {% endif %}
 
@@ -14,7 +14,7 @@
 
 ■ 发布说明:
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
 
 {% if post.mahua != true %} {% continue %} {% endif %}
 

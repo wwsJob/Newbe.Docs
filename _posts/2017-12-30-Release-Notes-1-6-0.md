@@ -80,6 +80,8 @@ releaseNodes: true
 
 升级过程中若出现需要覆盖build.ps1的提示，允许即可。
 
+不再需要`Tungsten.Domains`，可以在升级后卸载此 nuget 包。
+
 VS插件更新只需要安装VS提示进行操作即可。
 
 {% include NewbeMahuaNavigation.md %}
