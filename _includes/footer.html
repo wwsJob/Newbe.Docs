@@ -38,7 +38,7 @@
       听说正在直播码字，要不要前去帮忙刷一下人气？
     </div>
     <div class="am-modal-footer">
-      <span class="am-modal-btn" data-am-modal-cancel>滚蛋</span>
+      <span class="am-modal-btn am-btn-primary" data-am-modal-cancel>滚蛋</span>
       <span class="am-modal-btn" data-am-modal-confirm>好的</span>
     </div>
   </div>
@@ -67,29 +67,30 @@ $(function () {
   $("del").attr("title","你知道的太多了！");
   // 直播状态
   (function () {
-    var gotolive = false;
+    var loaded = false;
     window.setInterval(function () {
-      $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")
-        .done(function (data) {
-          if (!gotolive && data) {
-            $('#live-confirm').modal({
-              relatedTarget: this,
-              onConfirm: function(options) {
-                window.open("https://live.bilibili.com/7834872");
-              },
-              onCancel: function() {
-              }
-            });
-            $("#liveStatus").text("正在直播码字");
-          }else {
-            $("#liveStatus").text("这会儿没有直播");
-          }
-          gotolive = true;
-        })
-        .error(function () {
-          $("#liveStatus").text("这会儿没有直播");
-        });
-    },2000);
+        if (!loaded) {
+            $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")
+                .done(function (data) {
+                    if (data) {
+                        $('#live-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                window.open("https://live.bilibili.com/7834872");
+                            },
+                            onCancel: function () {}
+                        });
+                        $("#liveStatus").text("正在直播码字");
+                    } else {
+                        $("#liveStatus").text("这会儿没有直播");
+                    }
+                    loaded = true;
+                })
+                .error(function () {
+                    $("#liveStatus").text("这会儿没有直播");
+                });
+        }
+    }, 2000);
   })();
 });
 </script>
