@@ -15,7 +15,7 @@ markdown: kramdown
 
 contentsLabel: "目录"
 
-exclude: [vendor]
+exclude: [vendor,modules]
 plugins:
   - jekyll-github-metadata
   - jekyll-mentions
