@@ -6,7 +6,8 @@ cd ../newbepro
 
 echo sea
 
-git commit --no-edit -a -m AutoCommitMessage
+git add -A
+git commit -a -m AutoCommitMessage
 
 git push
 
