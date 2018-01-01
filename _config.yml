@@ -14,5 +14,9 @@ author: Newbe
 markdown: kramdown
 
 exclude: [vendor]
-gems:
+plugins:
+  - jekyll-github-metadata
+  - jekyll-mentions
+  - jekyll-redirect-from
   - jekyll-sitemap
+  - jemoji
