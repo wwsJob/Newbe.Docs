@@ -7,7 +7,7 @@ mahua: true
 releaseNodes: true
 ---
 
-此次版本发布主要围绕"开发便利性提升"特性。可调试行、可追踪性都有进一步提升。
+此次版本发布主要围绕"开发便利性提升"特性。可调试性、可追踪性都有进一步提升。
 
 # 版本亮点
 
@@ -88,6 +88,6 @@ releaseNodes: true
 
 不再需要`Tungsten.Domains`，可以在升级后卸载此 nuget 包。
 
-VS插件更新只需要安装VS提示进行操作即可。
+VS插件更新只需要按照VS提示进行操作即可。
 
 {% include NewbeMahuaNavigation.md %}

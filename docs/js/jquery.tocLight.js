@@ -12,46 +12,4 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  */
-(function($) {
-    $.toc = {};
-    $.toc.clickHideButton = function(settings) {
-        var config = {
-            saveShowStatus: false,
-            hideText: 'hide',
-            showText: 'show'};
-
-        if (settings) {
-            $.extend(config, settings);
-        }
-
-        $('#toctogglelink').click(function() {
-            var ul = $($('#toc ul')[0]);
-            
-            if (ul.is(':visible')) {
-                ul.hide();
-                $(this).text(config.showText);
-                if (config.saveShowStatus) {
-                    $.cookie('toc-hide', '1', { expires: 365, path: '/' });
-                }
-                $('#toc').addClass('tochidden');
-            } else {
-                ul.show();
-                $(this).text(config.hideText);
-                if (config.saveShowStatus) {
-                    $.removeCookie('toc-hide', { path: '/' });
-                }
-                $('#toc').removeClass('tochidden');
-            }
-            return false;
-        });
-
-        if (config.saveShowStatus && $.cookie('toc-hide')) {
-            var ul = $($('#toc ul')[0]);
-            
-            ul.hide();
-            $('#toctogglelink').text(config.showText);
-            $('#toc').addClass('tochidden');
-        }
-
-    }
-})(jQuery);
+!function(t){t.toc={},t.toc.clickHideButton=function(e){var o={saveShowStatus:!1,hideText:"hide",showText:"show"};if(e&&t.extend(o,e),t("#toctogglelink").click(function(){var e=t(t("#toc ul")[0]);return e.is(":visible")?(e.hide(),t(this).text(o.showText),o.saveShowStatus&&t.cookie("toc-hide","1",{expires:365,path:"/"}),t("#toc").addClass("tochidden")):(e.show(),t(this).text(o.hideText),o.saveShowStatus&&t.removeCookie("toc-hide",{path:"/"}),t("#toc").removeClass("tochidden")),!1}),o.saveShowStatus&&t.cookie("toc-hide")){t(t("#toc ul")[0]).hide(),t("#toctogglelink").text(o.showText),t("#toc").addClass("tochidden")}}}(jQuery);
