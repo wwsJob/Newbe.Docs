@@ -1,4 +1,3 @@
-docker build . -t newbe/newbepro:latest
 docker rm newbepro -f
 docker run -v %~dp0/src:/usr/src/app -v %~dp0/docs:/_site -p "4000:4000" -d --name newbepro newbe/newbepro
 ping 127.0.0.1 -n 3 -w 1000 > nul
