@@ -14,7 +14,7 @@ layout: default
         </p>
       </div>
       <div class="am-article-bd">
-            {{ content }}
+        {{ content | toc_generate }}
       </div>
     </article>
     <hr>
@@ -30,6 +30,6 @@ layout: default
     </div>
     <hr>
   </div>
-  {% include sidebar.html %}
+  {% include postSidebar.html %}
 </div>
 <!-- content end -->

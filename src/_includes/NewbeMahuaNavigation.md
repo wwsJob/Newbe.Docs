@@ -1,6 +1,6 @@
 =========================更多内容分割线=========================
 
-■ 教程链接：
+# 教程链接
 
 {% for post in site.posts reversed %}
 
@@ -12,7 +12,7 @@
 
 {% endfor %}
 
-■ 发布说明:
+# 发布说明
 
 {% for post in site.posts reversed %}
 

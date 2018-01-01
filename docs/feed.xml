@@ -6,8 +6,8 @@
 </description>
     <link>http://0.0.0.0:4000/</link>
     <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Jan 2018 07:05:51 +0000</pubDate>
-    <lastBuildDate>Mon, 01 Jan 2018 07:05:51 +0000</lastBuildDate>
+    <pubDate>Mon, 01 Jan 2018 08:22:47 +0000</pubDate>
+    <lastBuildDate>Mon, 01 Jan 2018 08:22:47 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -189,7 +189,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -201,7 +201,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -312,7 +312,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -324,7 +324,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -518,7 +518,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -530,7 +530,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -663,7 +663,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -675,7 +675,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -705,7 +705,7 @@
         <title>Newbe.Mahua 开发教程导航</title>
         <description>&lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -717,7 +717,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -813,7 +813,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -825,7 +825,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 
@@ -1091,7 +1091,7 @@
 
 &lt;p&gt;=========================更多内容分割线=========================&lt;/p&gt;
 
-&lt;p&gt;■ 教程链接：&lt;/p&gt;
+&lt;h1 id=&quot;教程链接&quot;&gt;教程链接&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html&quot;&gt;开始第一个QQ机器人【适用于v1.4及以上】&lt;/a&gt;&lt;/p&gt;
 
@@ -1103,7 +1103,7 @@
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html&quot;&gt;Newbe.Mahua.Samples.LiveGirl 操作定时任务&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;■ 发布说明:&lt;/p&gt;
+&lt;h1 id=&quot;发布说明&quot;&gt;发布说明&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html&quot;&gt;Newbe.Mahua 1.6.0 开发便利性提升&lt;/a&gt;&lt;/p&gt;
 

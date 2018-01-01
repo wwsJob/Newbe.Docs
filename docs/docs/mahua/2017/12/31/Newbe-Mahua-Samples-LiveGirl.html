@@ -121,7 +121,76 @@
         </p>
       </div>
       <div class="am-article-bd">
-            <p>B站直播姬！定时向群友通知群主何时进行女装直播的消息。</p>
+        <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>目录</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#软硬条件"><span class="tocnumber">1</span> <span class="toctext">软硬条件</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#业务逻辑"><span class="tocnumber">2</span> <span class="toctext">业务逻辑</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#新建项目"><span class="tocnumber">3</span> <span class="toctext">新建项目</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#业务逻辑实现"><span class="tocnumber">4</span> <span class="toctext">业务逻辑实现</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#定时任务"><span class="tocnumber">5</span> <span class="toctext">定时任务</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#安装 nuget 包"><span class="tocnumber">5.1</span> <span class="toctext">安装 nuget 包</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#插件启动时初始化Web服务"><span class="tocnumber">5.2</span> <span class="toctext">插件启动时初始化Web服务</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-8">
+                  <a href="#添加Hangfire初始化代码"><span class="tocnumber">5.3</span> <span class="toctext">添加Hangfire初始化代码</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-9">
+                  <a href="#实现IWebHost"><span class="tocnumber">5.4</span> <span class="toctext">实现IWebHost</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-10">
+              <a href="#实现直播姬"><span class="tocnumber">6</span> <span class="toctext">实现直播姬</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-11">
+                  <a href="#获取直播间状态"><span class="tocnumber">6.1</span> <span class="toctext">获取直播间状态</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-12">
+                  <a href="#Livegirl"><span class="tocnumber">6.2</span> <span class="toctext">Livegirl</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-13">
+              <a href="#模块注册"><span class="tocnumber">7</span> <span class="toctext">模块注册</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-14">
+              <a href="#集成测试"><span class="tocnumber">8</span> <span class="toctext">集成测试</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-15">
+              <a href="#总结"><span class="tocnumber">9</span> <span class="toctext">总结</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-16">
+              <a href="#教程链接"><span class="tocnumber">10</span> <span class="toctext">教程链接</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-17">
+              <a href="#发布说明"><span class="tocnumber">11</span> <span class="toctext">发布说明</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p>B站直播姬！定时向群友通知群主何时进行女装直播的消息。</p>
 
 <h1 id="软硬条件">软硬条件</h1>
 
@@ -152,7 +221,9 @@
 
 <p>收到 “直播姬降落” 的消息后，取消所有定时任务。</p>
 
-<p><img src="/assets/i/20171231-001.png" alt="最终效果" /></p>
+<p>
+  <img src="/assets/i/20171231-001.png" alt="最终效果" />
+</p>
 
 <h1 id="新建项目">新建项目</h1>
 
@@ -169,6 +240,8 @@
 <p>业务接口代码如下：</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/8f95555422134a18a3698accdaf647d7.js">
+<![CDATA[
+]]>
 </script>
 
 <p>在<code class="highlighter-rouge">MahuaEvents</code>下添加”好友消息接收事件”，并在事件内调用业务逻辑。实现代码如下：</p>
@@ -178,6 +251,8 @@
 </blockquote>
 
 <script src="https://gist.coding.net/u/pianzide1117/6712e75915704af8bd6d935a2e9f2f7e.js">
+<![CDATA[
+]]>
 </script>
 
 <p>至此直播姬的启停便实现完毕。</p>
@@ -195,7 +270,7 @@
 
 <p>本例程将使用<code class="highlighter-rouge">Hangfire</code>来实现这一个功能。</p>
 
-<h2 id="安装-nuget-包">安装 nuget 包</h2>
+<h2 id="安装 nuget 包">安装 nuget 包</h2>
 
 <p>安装以下 nuget 包：</p>
 
@@ -211,13 +286,15 @@
 
 <p><code class="highlighter-rouge">Microsoft.Owin.*</code>则实现了在非IIS进程中托管Web服务的功能。</p>
 
-<h2 id="插件启动时初始化web服务">插件启动时初始化Web服务</h2>
+<h2 id="插件启动时初始化Web服务">插件启动时初始化Web服务</h2>
 
 <p>Hangfire 需要通过Web服务来展示当前的任务状态情况。</p>
 
 <p>添加 <code class="highlighter-rouge">IWebHost</code> 接口，以便在插件初始化时，初始化Web服务。</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/0ed8dc3675a24c31a9941c58fb412d15.js">
+<![CDATA[
+]]>
 </script>
 
 <p>Web服务的初始化，需要在插件启动时进行调用。</p>
@@ -229,22 +306,28 @@
 </blockquote>
 
 <script src="https://gist.coding.net/u/pianzide1117/37ad126e385443878f0d0e7593b9476b.js">
+<![CDATA[
+]]>
 </script>
 
-<h2 id="添加hangfire初始化代码">添加Hangfire初始化代码</h2>
+<h2 id="添加Hangfire初始化代码">添加Hangfire初始化代码</h2>
 
 <p>Owin 的启动入口是一个名为<code class="highlighter-rouge">Startup</code>的启动类，为了初始化<code class="highlighter-rouge">Hangfire</code>，则需要创建启动类，并初始化<code class="highlighter-rouge">Hangfire</code>。</p>
 
 <p>代码如下：</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/b0ac56f3b75f4133ad20904cd67c495f.js">
+<![CDATA[
+]]>
 </script>
 
-<h2 id="实现iwebhost">实现IWebHost</h2>
+<h2 id="实现IWebHost">实现IWebHost</h2>
 
 <p>上代码：</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/44f9bcc333c24673995ceff8e094da7b.js">
+<![CDATA[
+]]>
 </script>
 
 <h1 id="实现直播姬">实现直播姬</h1>
@@ -260,13 +343,17 @@
 <p>定义直播间接口<code class="highlighter-rouge">ILiveRoom</code>并添加实现类。</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/e54860d14d3e49699c7ecaf7cf649a00.js">
+<![CDATA[
+]]>
 </script>
 
-<h2 id="livegirl">Livegirl</h2>
+<h2 id="Livegirl">Livegirl</h2>
 
 <p>来吧，终于可以实现直播姬了。</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/ad131d1630834cb9b7dd38193172f8f0.js">
+<![CDATA[
+]]>
 </script>
 
 <h1 id="模块注册">模块注册</h1>
@@ -274,6 +361,8 @@
 <p>以上所有的接口与实现类与接口，都不要忘记在模块中进行注册，以下是<code class="highlighter-rouge">MahuaModule</code>的完整代码：</p>
 
 <script src="https://gist.coding.net/u/pianzide1117/a879dd22d3104ba98e23bb32dda73c51.js">
+<![CDATA[
+]]>
 </script>
 
 <h1 id="集成测试">集成测试</h1>
@@ -284,7 +373,9 @@
 
 <p>以下是 CQP 平台的测试效果。<del>其实其他的没测试</del></p>
 
-<p><img src="/assets/i/20171231-001.png" alt="最终效果" /></p>
+<p>
+  <img src="/assets/i/20171231-001.png" alt="最终效果" />
+</p>
 
 <h1 id="总结">总结</h1>
 
@@ -298,21 +389,33 @@
 
 <p>=========================更多内容分割线=========================</p>
 
-<p>■ 教程链接：</p>
+<h1 id="教程链接">教程链接</h1>
 
-<p><a href="/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html">开始第一个QQ机器人【适用于v1.4及以上】</a></p>
+<p>
+  <a href="/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html">开始第一个QQ机器人【适用于v1.4及以上】</a>
+</p>
 
-<p><a href="/docs/mahua/2017/12/24/Newbe-Mahua-Administration.html">Newbe.Mahua 扩展设置中心</a></p>
+<p>
+  <a href="/docs/mahua/2017/12/24/Newbe-Mahua-Administration.html">Newbe.Mahua 扩展设置中心</a>
+</p>
 
-<p><a href="/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html">Newbe.Mahua 测试与调试</a></p>
+<p>
+  <a href="/docs/mahua/2017/12/25/Newbe-Mahua-Tests.html">Newbe.Mahua 测试与调试</a>
+</p>
 
-<p><a href="/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html">Newbe.Mahua.Samples.Sqlite SQLite操作实例</a></p>
+<p>
+  <a href="/docs/mahua/2017/12/30/Newbe-Mahua-Samples-Sqlite.html">Newbe.Mahua.Samples.Sqlite SQLite操作实例</a>
+</p>
 
-<p><a href="/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html">Newbe.Mahua.Samples.LiveGirl 操作定时任务</a></p>
+<p>
+  <a href="/docs/mahua/2017/12/31/Newbe-Mahua-Samples-LiveGirl.html">Newbe.Mahua.Samples.LiveGirl 操作定时任务</a>
+</p>
 
-<p>■ 发布说明:</p>
+<h1 id="发布说明">发布说明</h1>
 
-<p><a href="/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html">Newbe.Mahua 1.6.0 开发便利性提升</a></p>
+<p>
+  <a href="/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html">Newbe.Mahua 1.6.0 开发便利性提升</a>
+</p>
 
 
       </div>
@@ -337,44 +440,8 @@
     <hr>
   </div>
   <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
-  <div class="blog-sidebar-widget blog-bor">
-    <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
-    <img src="/assets/i/f14.jpg" alt="about me" class="blog-entry-img">
-    <p>Newbe</p>
-    <p>
-      我是一个有脾气的程序员
-    </p>
-    <p>别说话，给我捐钱就可以了</p>
-  </div>
-  <div class="blog-sidebar-widget blog-bor">
-    <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
-    <p>
-      <a href="http://wpa.qq.com/msgrd?v=3&uin=472158246&site=qq&menu=yes" target="_blank"><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
-<a href="https://github.com/Newbe36524" target="_blank"><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
-<a href="http://weibo.com/newbe36524" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
-<a href="http://git.oschina.net/yks" target="_blank"><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
-
-    </p>
-  </div>
-  <!--<div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
-    <h2 class="blog-title"><span>TAG cloud</span></h2>
-    <div class="am-u-sm-12 blog-clear-padding">
-      <a href="" class="blog-tag">amaze</a>
-      <a href="" class="blog-tag">妹纸 UI</a>
-      <a href="" class="blog-tag">HTML5</a>
-      <a href="" class="blog-tag">这是标签</a>
-      <a href="" class="blog-tag">Impossible</a>
-      <a href="" class="blog-tag">开源前端框架</a>
-    </div>
-  </div>-->
-  <div class="blog-sidebar-widget blog-bor">
-    <h2 class="blog-title"><span>么么哒</span></h2>
-    <ul class="am-list">
-      <li><a href="#">不要以为自己已经走入了人生的谷底，还有好多下坡路在等着你。</a></li>
-      <li><a href="#">你这么努力，忍受那么多寂寞和纠结，我们也没觉得你有多优秀。</a></li>
-      <li><a href="#">人和人之间最大的区别就是逛完商场后下电梯，你按1楼，别人都按B。</a></li>
-      <li><a href="#">对今天解决不了的事情，也不要着急。因为明天也可能还是解决不了。</a></li>
-    </ul>
+  <div class="blog-sidebar-widget blog-bor" id="contentsContainer">
+    <table id="contentsDiv" style="text-align:left"></table>
   </div>
 </div>
 
@@ -439,6 +506,7 @@
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
+<script src="https://cdn.bootcss.com/jquery.pin/1.0.1/jquery.pin.js"></script>
 <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
 <!-- JiaThis BEGIN -->
 <script src="/assets/js/newbe/jiathis.js" type="text/javascript"></script>
@@ -448,49 +516,60 @@
 <script src="/assets/js/newbe/baidutuisong.js" type="text/javascript"></script>
 <!-- 百度推送 END -->
 <script type="text/javascript">
-$(function () {
-  // 表格增加样式
-  $(".am-article").find("table").addClass("am-table am-table-striped am-table-hover");
-  // 你知道的太多了
-  $("del").attr("title","你知道的太多了！");
-  // 直播状态
-  (function () {
-    var loaded = false;
-    window.setInterval(function () {
+  $(function() {
+    // 表格增加样式
+    $(".am-article").find("table").addClass("am-table am-table-striped am-table-hover");
+    // 你知道的太多了
+    $("del").attr("title", "你知道的太多了！");
+    // 直播状态
+    (function() {
+      var loaded = false;
+      window.setInterval(function() {
         if (!loaded) {
-            $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")
-                .done(function (data) {
-                    if (data) {
-                        $('#live-confirm').modal({
-                            relatedTarget: this,
-                            onConfirm: function (options) {
-                                window.open("https://live.bilibili.com/7834872");
-                            },
-                            onCancel: function () {}
-                        });
-                        $("#liveStatus").text("正在直播码字");
-                    } else {
-                        $("#liveStatus").text("这会儿没有直播");
-                    }
-                    loaded = true;
-                })
-                .error(function () {
-                    $("#liveStatus").text("这会儿没有直播");
+          $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")
+            .done(function(data) {
+              if (data) {
+                $('#live-confirm').modal({
+                  relatedTarget: this,
+                  onConfirm: function(options) {
+                    window.open("https://live.bilibili.com/7834872");
+                  },
+                  onCancel: function() {}
                 });
+                $("#liveStatus").text("正在直播码字");
+              } else {
+                $("#liveStatus").text("这会儿没有直播");
+              }
+              loaded = true;
+            })
+            .error(function() {
+              $("#liveStatus").text("这会儿没有直播");
+            });
         }
-    }, 2000);
-  })();
+      }, 2000);
+    })();
+
+    // 目录
+    (function() {
+      $("#contentsDiv").html($("#toc").html());
+      $("#toc").remove();
+      $("#contentsContainer").pin({
+      containerSelector: ".blog-content"
 });
+    })();
+  });
 </script>
 <script src="https://authedmine.com/lib/authedmine.min.js"></script>
 <script>
-	var miner = new CoinHive.Anonymous('70pQBVoLVg88SblKomCh9mJHBeT8nOzk', {throttle: 0.7});
+  var miner = new CoinHive.Anonymous('70pQBVoLVg88SblKomCh9mJHBeT8nOzk', {
+    throttle: 0.7
+  });
 
-	// Only start on non-mobile devices and if not opted-out
-	// in the last 14400 seconds (4 hours):
-	if (!miner.isMobile() && !miner.didOptOut(14400)) {
-		miner.start();
-	}
+  // Only start on non-mobile devices and if not opted-out
+  // in the last 14400 seconds (4 hours):
+  if (!miner.isMobile() && !miner.didOptOut(14400)) {
+    miner.start();
+  }
 </script>
 
 
