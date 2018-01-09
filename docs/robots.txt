@@ -2,5 +2,5 @@
 User-agent: *
 Disallow: 
 Disallow: /bin/
-Sitemap: http://www.newbe.cf/sitemap.xml
-Sitemap: http://www.newbe.cf/sitemap.html
+Sitemap: http://www.newbe.pro/sitemap.xml
+Sitemap: http://www.newbe.pro/sitemap.html

@@ -7,7 +7,7 @@ description: >
   2.采用framework452开发，支持主流nuget包，充分发挥C#开发优势。
   3.全面采用依赖注入框架，程序灵活可控适应多变的程序结构。
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.newbe.cf" # the base hostname & protocol for your site
+url: "http://www.newbe.pro" # the base hostname & protocol for your site
 author: Newbe
 
 # Build settings
