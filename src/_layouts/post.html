@@ -20,16 +20,26 @@ layout: default
     <hr>
     <div class="am-g blog-article-widget blog-article-margin">
       <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
-        <span class="am-icon-tags"> &nbsp;</span>
-        {% for tag in page.tags %}
-          <a href="#">{{ tag  }}</a>
-        {% endfor%}
-        <hr>
-        {% include contactIcons.html %}
+        <span class="am-icon-tags"> &nbsp;</span> {% for tag in page.tags %}
+        <a href="#">{{ tag  }}</a> {% endfor%}
+        <hr> {% include contactIcons.html %}
       </div>
     </div>
     <hr>
   </div>
   {% include postSidebar.html %}
 </div>
+<script type="application/ld+json">
+  {
+    "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+    "@id": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
+    "appid": "1588460453028363",
+    "title": "{{ page.title }}",
+    "images": [],
+    "description": "{{ page.excerpt | strip_html | strip_newlines }}",
+    "pubDate": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S" }}",
+    "upDate": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S" }}",
+    "lrDate": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S" }}"
+  }
+</script>
 <!-- content end -->

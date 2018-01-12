@@ -18,7 +18,6 @@ contentsLabel: "目录"
 exclude: [vendor,modules]
 plugins:
   - jekyll-github-metadata
-  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
   - jemoji
