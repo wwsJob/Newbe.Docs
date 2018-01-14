@@ -2,10 +2,7 @@
 title: Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。
 email: 472158246@qq.com
 description: >
-  Newbe.Mahua致力于开发一套具备高级特性的QQ机器人开发平台：
-  1.一次开发支持多QQ机器人平台。
-  2.采用framework452开发，支持主流nuget包，充分发挥C#开发优势。
-  3.全面采用依赖注入框架，程序灵活可控适应多变的程序结构。
+  Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.newbe.pro" # the base hostname & protocol for your site
 author: Newbe

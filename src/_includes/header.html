@@ -10,12 +10,19 @@
   <div class="am-collapse am-topbar-collapse" id="blog-collapse">
     <ul class="am-nav am-nav-pills am-topbar-nav">
       <li class="am-active"><a href="/">首页</a></li>
-      <li><a href="#" title="麻花文库(Mahua Gallery)" onclick=" $('#pleaseWait').modal()">麻花(Mahua)插件中心</a></li>
-      <li><a href="https://gitee.com/yks/Newbe.Mahua.Framework" title="项目源码" target="_blank">项目源码</a></li>
+      <li class="am-dropdown" data-am-dropdown="">
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+          项目源码 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="https://gitee.com/yks/Newbe.Mahua.Framework" title="Newbe.Mahua" target="_blank">Newbe.Mahua</a></li>
+        </ul>
+      </li>
       <li><a href="{{ site.baseurl }}/other/2018/01/07/Donate.html" title="借一步说话" target="_blank">借一步说话</a></li>
       <li><a href="https://marketplace.visualstudio.com/items?itemName=Newbe36524.NewbeMahuaVsExtensions" title="VS插件下载" target="_blank">VS插件下载</a></li>
       <li><a href="https://jq.qq.com/?_wv=1027&k=4AMMCTx" title="技术交流群" target="_blank">技术交流群</a></li>
-      <li><a href="https://live.bilibili.com/7834872" title="直播码字" target="_blank" id="liveStatus" >直播码字</a></li>
+      <li><a href="#" title="麻花文库(Mahua Gallery)" onclick=" $('#pleaseWait').modal()">麻花(Mahua)插件中心</a></li>
+      <li><a href="https://live.bilibili.com/7834872" title="直播码字" target="_blank" id="liveStatus">直播码字</a></li>
     </ul>
     <div class="am-form-group">
       <script type="text/javascript">
@@ -39,7 +46,7 @@
   <div class="am-modal-dialog">
     <div class="am-modal-hd">即将上线</div>
     <div class="am-modal-bd">
-     尽请期待！
+      尽请期待！
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn">确定</span>
