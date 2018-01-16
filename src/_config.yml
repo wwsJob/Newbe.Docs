@@ -1,5 +1,5 @@
 # Site settings
-title: Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。
+title: Newbe便是新生，唯有不断蜕变才能焕然新生
 email: 472158246@qq.com
 description: >
   Newbe | Newbe便是新生，唯有不断蜕变才能焕然新生。
@@ -12,10 +12,23 @@ markdown: kramdown
 
 contentsLabel: "目录"
 
+# seo tag
+logo: /assets/i/logo.png
+social:
+  name: Newbe
+  links:
+    - https://github.com/Newbe36524/
+    - https://gitee.com/yks
+    - https://user.qzone.qq.com/472158246
+    - https://weibo.com/newbe36524
+    - https://www.linkedin.com/in/%E5%9D%A4-%E4%BF%9E-09406a116/
+lang: zh_cn
+
 exclude: [vendor,modules]
 plugins:
   - jekyll-github-metadata
   - jekyll-redirect-from
   - jekyll-sitemap
   - jemoji
+  - jekyll-seo-tag
   - jekyll-minifier
