@@ -1,10 +1,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="msvalidate.01" content="71CCAD9D3DEDBA653F52D96EACF9ED56" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  {% seo %}
-<!--  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% seo %}
+  <!--  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}" />
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
@@ -20,15 +19,38 @@
   <meta name="msapplication-TileColor" content="#0e90d2">
   <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
+  <style>
+    .am-article-bd .emoji {
+      display: inline;
+    }
+  </style>
   <style media="screen">
-      del{
-        text-decoration: none;
-        color: black;
-        background-color:black
-      }
-      del:hover{
-        background-color:white
-      }
+    del {
+      text-decoration: none;
+      color: black;
+      background-color: black
+    }
+
+    del:hover {
+      background-color: white
+    }
+  </style>
+  <style media="print">
+    del {
+      display: none;
+    }
+
+    .jiathis_style {
+      display: none;
+    }
+
+    #xiongzhang-container {
+      display: none;
+    }
+
+    #contentsContainer {
+      display: none;
+    }
   </style>
   <!-- 腾讯分析 BEGIN-->
   <script type="text/javascript" src="http://tajs.qq.com/stats?sId=64959016" charset="UTF-8"></script>
@@ -38,7 +60,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100658571-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-100658571-2');

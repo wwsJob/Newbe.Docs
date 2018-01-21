@@ -8,7 +8,9 @@ layout: default
       <div class="am-article-hd">
         <h1 class="am-article-title blog-text-center">{{ page.title }}</h1>
         <p class="am-article-meta blog-text-center">
+          {% if page.categories %}
           <span><a href="#" class="blog-color">{{ page.categories | array_to_sentence_string }}</a></span>-
+          {% endif %}
           <span><a href="#">{{ site.author }} &nbsp;</a></span>-
           <span><a href="#">{{ page.date | date_to_string }}</a></span>
         </p>
@@ -17,15 +19,15 @@ layout: default
         {{ content | toc_generate }}
       </div>
     </article>
-    <hr>
-    <div class="am-g blog-article-widget blog-article-margin">
+    <hr class="am-print-hide" />
+    <div class="am-g blog-article-widget blog-article-margin am-print-hide">
       <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
         <span class="am-icon-tags"> &nbsp;</span> {% for tag in page.tags %}
         <a href="#">{{ tag  }}</a> {% endfor%}
         <hr> {% include contactIcons.html %}
       </div>
     </div>
-    <hr>
+    <hr class="am-print-hide" />
   </div>
   {% include postSidebar.html %}
 </div>
