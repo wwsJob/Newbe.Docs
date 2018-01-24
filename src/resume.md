@@ -8,9 +8,17 @@ excerpt: Newbe·简历
 
 Newbe便是新生，唯有不断蜕变才能焕然新生。
 
+![简历照片]({{ site.baseurl }}/assets/i/resume.png){:style="float:right"}
+
 # 基本信息
 
-俞坤，男，1992年生，福建师范大学本科毕业，.Net Web开发，开源项目作者。
+俞坤，男，1992年生，福建师范大学本科毕业，.Net Web开发。
+
+开源项目作者，独立博客维护者(newbe.pro)
+
+电子邮箱：newbe36524@qq.com
+
+个人QQ：472158246
 
 # 学业历程
 
@@ -24,28 +32,6 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 - ACM 福建省银奖一次、校一等奖一次
 - 学分平均绩点 3.0 以上，同专业顶尖
 - 为学校制作"名师讲堂"网站，展示新闻、视频等，获得了4K元酬金
-
-# 个人项目
-
-## Newbe.Mahua
-
-[项目地址](https://github.com/Newbe36524/Newbe.Mahua.Framework)
-
-![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square) | ![nuget](https://img.shields.io/nuget/dt/Newbe.Mahua.svg?style=flat-square) | ![Newbe.Mahua](https://img.shields.io/github/stars/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square&label=Stars)
-
-![Newbe.Mahua体系结构](https://static.oschina.net/uploads/img/201801/10143817_nI7F.png)
-
-使用该SDK开发可以实现一次开发，运行于多个不同QQ机器人平台平台的绝佳体验。
-
-基于SDK开发，可以实现包含但不限于以下功能：
-
-- QQ消息智能回复
-- 通过QQ发送图片
-- QQ名片点赞
-- QQ群成员管理
-- at指定QQ群成员发送消息
-
-该项目添加了VS插件辅助开发，更加方便。
 
 # 工作经历
 
@@ -118,8 +104,32 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 :+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点和排查。代码审查与任务分配。了解以`Consul`为服务发现中间件的系统集成方案。
 
+# 个人项目
+
+## Newbe.Mahua
+
+[项目地址](https://github.com/Newbe36524/Newbe.Mahua.Framework)
+
+![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square) | ![nuget](https://img.shields.io/nuget/dt/Newbe.Mahua.svg?style=flat-square) | ![Newbe.Mahua](https://img.shields.io/github/stars/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square&label=Stars)
+
+![Newbe.Mahua体系结构](https://static.oschina.net/uploads/img/201801/10143817_nI7F.png)
+
+使用该SDK开发可以实现一次开发，运行于多个不同QQ机器人平台平台的绝佳体验。
+
+基于SDK开发，可以实现包含但不限于以下功能：
+
+- QQ消息智能回复
+- 通过QQ发送图片
+- QQ名片点赞
+- QQ群成员管理
+- at指定QQ群成员发送消息
+
+该项目添加了VS插件辅助开发，更加方便。
+
 # 求职意向
 
 ## .Net Web开发
 
 能够胜任.Net Web开发小型团队管理，个人开发能力良好。熟悉Web开发的主要技术栈。
+
+[点击此处下载简历]({{ site.baseurl }}/assets/others/Newbe.俞坤.简历.pdf){:class="am-print-hide" target="_blank"}
