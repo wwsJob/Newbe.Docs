@@ -80,14 +80,16 @@
                   },
                   onCancel: function() {}
                 });
-                $("#liveStatus").text("正在直播码字");
+                $("#liveStatus").html('正在直播码字');
               } else {
-                $("#liveStatus").text("这会儿没有直播");
+                $("#liveStatus").html("这会儿没有直播");
+                $("#dancedog").hide();
               }
               loaded = true;
             })
             .error(function() {
-              $("#liveStatus").text("这会儿没有直播");
+              $("#liveStatus").html("这会儿没有直播");
+              $("#dancedog").hide();
             });
         }
       }, 2000);

@@ -82,7 +82,7 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 :octocat: [技术]：`ASP.Net MVC`/`Dapper`/`JQuery`/`Easyui`/`RESTful API`/`VMWare VCenter`/`SQLite`/`XUnit`/`Git`
 
-:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点和排查。代码审查与任务分配。了解`VCenter`API。
+:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点、代码审查与任务分配。了解`VCenter`API。
 
 ### 河南省国土资源厅统一访问控制系统
 
@@ -92,7 +92,7 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 :octocat: [技术]：`ASP.Net MVC`/`Easyui`/`OpenID Connent`/`OAuth`/`IdentityServer3`/`SQLite`/`RESTful API`/`TFS`
 
-:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点和排查。代码审查与任务分配。了解以`IdentityServer3`为主要框架的单点登录方案。
+:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点、代码审查与任务分配。了解以`IdentityServer3`为主要框架的单点登录方案。
 
 ### 河南省国土资源厅电子政务内网门户
 
@@ -102,7 +102,7 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 :octocat: [技术]：`ASP.Net MVC`/`AspnetBoilerplate`/`火车采集器`/`Consul`/`SQLServer Localdb`/`ECharts`/`TFS`
 
-:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点和排查。代码审查与任务分配。了解以`Consul`为服务发现中间件的系统集成方案。
+:+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点、代码审查与任务分配。了解以`Consul`为服务发现中间件的系统集成方案。
 
 # 个人项目
 

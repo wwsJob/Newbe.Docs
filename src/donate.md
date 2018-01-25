@@ -1,10 +1,9 @@
 ---
 layout: post
 title: 借一步说话
-categories: Other
 tags: Donate Other
+date: '2018.01.21T21:15:31'
 excerpt: 借一步说话
-top: true
 ---
 
 是的，如果你希望答谢本站内容给你带来的帮助，那么可以通过以下途径支持本站。
