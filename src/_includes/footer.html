@@ -46,16 +46,12 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <!--<![endif]-->
 <!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 <script src="https://cdn.bootcss.com/jquery.pin/1.0.1/jquery.pin.js"></script>
 <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
-<!-- JiaThis BEGIN -->
-<script src="{{ site.baseurl }}/assets/js/newbe/jiathis.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?move=0&amp;btn=r4.gif&amp;uid=2134199" charset="utf-8"></script>
-<!-- JiaThis END -->
 <!-- 百度推送 BEGIN -->
 <script src="{{ site.baseurl }}/assets/js/newbe/baidutuisong.js" type="text/javascript"></script>
 <!-- 百度推送 END -->
@@ -67,7 +63,7 @@
     $("del").attr("title", "你知道的太多了！");
     // 直播状态
     (function() {
-      var loaded = false;
+      var loaded = true;
       window.setInterval(function() {
         if (!loaded) {
           $.get("http://pianzide1117.oicp.net:12821/api/beesite/status")

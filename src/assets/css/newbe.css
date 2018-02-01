@@ -1,0 +1,29 @@
+.am-article-bd .emoji {
+  display: inline;
+}
+
+@media screen {
+  del {
+    text-decoration: none;
+    color: black;
+    background-color: black
+  }
+  del:hover {
+    background-color: white
+  }
+}
+
+@media print {
+  del {
+    display: none;
+  }
+  .jiathis_style {
+    display: none;
+  }
+  #xiongzhang-container {
+    display: none;
+  }
+  #contentsContainer {
+    display: none;
+  }
+}
