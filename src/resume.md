@@ -10,11 +10,17 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 ![简历照片]({{ site.baseurl }}/assets/i/resume.png){:style="float:right"}
 
-# 基本信息
+# 概要
 
-俞坤，男，1992年生，福建师范大学本科毕业，.Net Web开发。
+俞坤，男，1992年生，福建师范大学本科。
 
-开源项目作者，独立博客维护者(newbe.pro)
+.Net Web开发(精)，Java Web开发(初)。
+
+开源项目作者，独立博客维护者(www.newbe.pro)。
+
+学习能力强，技术热情高。
+
+协作交流佳，文档能力好。
 
 电子邮箱：newbe36524@qq.com
 
@@ -104,6 +110,16 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 :+1: [贡献]：主程，项目架构设计。针对业务需求决策主要技术要点、代码审查与任务分配。了解以`Consul`为服务发现中间件的系统集成方案。
 
+### 特力惠统一身份认证与授权平台
+
+:mortar_board: [需求]：为特力惠所有产品提供统一的身份认证与授权平台，实现多产品单点登录与授权管理。
+
+:two_men_holding_hands: [团队]：IDM研发组4人
+
+:octocat: [技术]：`Java`/`SpringBoot`/`CAS`/`SpringCloud`/`RESTful API`/`OpenID Connent`/`OAuth`/`SAML`/`TFS`
+
+:+1: [贡献]：主程，项目架构设计。独立完成JAVA技术转型过程中遇到的技术难点。基于原有的协议知识，对CAS进行自主定制，实现了原有的产品的统一对接。
+
 # 个人项目
 
 ## Newbe.Mahua
@@ -126,10 +142,26 @@ Newbe便是新生，唯有不断蜕变才能焕然新生。
 
 该项目添加了VS插件辅助开发，更加方便。
 
+# 主要技术陈列
+
+熟悉或了解以下内容，并在工作中进行实践：
+
+- Asp.Net Webform/MVC 以及主流类库：Autofac，EF等
+- Docker
+- ElasticSearch
+- IdentityServer3
+- Consul
+- CAS
+- Spring
+
 # 求职意向
 
 ## .Net Web开发
 
 能够胜任.Net Web开发小型团队管理，个人开发能力良好。熟悉Web开发的主要技术栈。
+
+## Java Web开发
+
+经验相对于.Net开发较少，但学习能力强，中英文阅读能力佳。特别适合于胜任有.Net向Java进行技术转型的工作。
 
 [点击此处下载简历]({{ site.baseurl }}/assets/others/Newbe.俞坤.简历.pdf){:class="am-print-hide" target="_blank"}
