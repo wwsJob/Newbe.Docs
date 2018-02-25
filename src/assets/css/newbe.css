@@ -26,4 +26,8 @@
   #contentsContainer {
     display: none;
   }
+
+  p{
+    line-height: 1.0;
+  }
 }
