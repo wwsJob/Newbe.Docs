@@ -43,8 +43,40 @@ Newbe.Mahua | 1.7
 
 > MahuaEvents文件夹是本SDK建议将事件放置的文件夹位置。也可以不接受建议而添加在其他地方。
 
-<script src="https://gist.coding.net/u/pianzide1117/30246ec6d5e0463da188764319c8c746.js">
-</script>
+```csharp
+
+using Newbe.Mahua.MahuaEvents;
+
+namespace Newbe.Mahua.Samples.ApiExtensions.MahuaEvents
+{
+    /// <summary>
+    /// 来自好友的私聊消息接收事件
+    /// </summary>
+    public class PrivateMessageFromFriendReceivedMahuaEvent
+        : IPrivateMessageFromFriendReceivedMahuaEvent
+    {
+        private readonly IMahuaApi _mahuaApi;
+
+        public PrivateMessageFromFriendReceivedMahuaEvent(
+            IMahuaApi mahuaApi)
+        {
+            _mahuaApi = mahuaApi;
+        }
+
+        public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
+        {
+            // 获取好友列表
+            var friends = _mahuaApi.GetFriends();
+
+            // 测试好友消息发送
+            _mahuaApi.SendPrivateMessage(context.FromQq, "这条消息将写入到日志当中");
+
+            // 测试设置公告接口，需要本QQ在目标群具备管理员权限
+            _mahuaApi.SetNotice("610394020", "测试公告", friends);
+        }
+    }
+}
+```
 
 # 扩展API
 
@@ -60,8 +92,25 @@ Newbe.Mahua | 1.7
 
 ![添加获取好友列表]({{ site.baseurl }}/assets/i/20180107-001.png)
 
-<script src="https://gist.coding.net/u/pianzide1117/8223fd1d42de4a078e8b5fd7cbda5941.js">
-</script>
+```csharp
+
+using Newbe.Mahua.Apis;
+
+namespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis
+{
+    public class GetFriendsApiMahuaCommandHandler : IApiCommandHandler<GetFriendsApiMahuaCommand, GetFriendsApiMahuaCommandResult>
+    {
+        public GetFriendsApiMahuaCommandResult Handle(GetFriendsApiMahuaCommand message)
+        {
+            var re = new GetFriendsApiMahuaCommandResult
+            {
+                FriendsString = "这是一段测试好友消息，这段消息会被发送到公告中"
+            };
+            return re;
+        }
+    }
+}
+```
 
 ## 替换原来就支持的
 
@@ -73,8 +122,25 @@ Newbe.Mahua | 1.7
 
 > MahuaApis 文件夹是本SDK建议将API扩展放置的文件夹位置。也可以不接受建议而添加在其他地方。
 
-<script src="https://gist.coding.net/u/pianzide1117/a1b99f00e97c47078ea45eef3e87ff26.js">
-</script>
+```csharp
+
+using Newbe.Mahua.Apis;
+using Newbe.Mahua.Logging;
+
+namespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis
+{
+    public class SendPrivateMessageApiMahuaCommandHandler : IApiCommandHandler<SendPrivateMessageApiMahuaCommand>
+    {
+        public void Handle(SendPrivateMessageApiMahuaCommand message)
+        {
+            var logger = LogProvider.For<SendPrivateMessageApiMahuaCommandHandler>();
+
+            // 将好友消息写入到日志当中
+            logger.Info(message.Message);
+        }
+    }
+}
+```
 
 ## 引入扩展包
 
@@ -92,8 +158,93 @@ Newbe.Mahua | 1.7
 
 以上三种方式实现API的扩展都需要在模块中进行注册，具体的注册代码如下：
 
-<script src="https://gist.coding.net/u/pianzide1117/ca5896a7220a4ef7b62914f80c9fbb7d.js">
-</script>
+```csharp
+
+using Autofac;
+using Newbe.Mahua.Apis;
+using Newbe.Mahua.CQP.ApiExtensions;
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Samples.ApiExtensions.MahuaApis;
+using Newbe.Mahua.Samples.ApiExtensions.MahuaEvents;
+
+namespace Newbe.Mahua.Samples.ApiExtensions
+{
+    /// <summary>
+    /// Ioc容器注册
+    /// </summary>
+    public class MahuaModule : IMahuaModule
+    {
+        public Module[] GetModules()
+        {
+            // 可以按照功能模块进行划分，此处可以改造为基于文件配置进行构造。实现模块化编程。
+            return new Module[]
+            {
+                new PluginModule(),
+                new MahuaEventsModule(),
+                new MyApiModule(),
+
+                // 引入CQP的API扩展包的模块注册
+                new CqpApiExtensionsModule(),
+            };
+        }
+
+        /// <summary>
+        /// 基本模块
+        /// </summary>
+        private class PluginModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将实现类与接口的关系注入到Autofac的Ioc容器中。如果此处缺少注册将无法启动插件。
+                // 注意！！！PluginInfo是插件运行必须注册的，其他内容则不是必要的！！！
+                builder.RegisterType<PluginInfo>()
+                    .As<IPluginInfo>();
+
+                //注册在“设置中心”中注册菜单，若想订阅菜单点击事件，可以查看教程。http://www.newbe.cf/docs/mahua/2017/12/24/Newbe-Mahua-Navigations.html
+                builder.RegisterType<MyMenuProvider>()
+                    .As<IMahuaMenuProvider>();
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IMahuaEvent"/> 事件处理模块
+        /// </summary>
+        private class MahuaEventsModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将需要监听的事件注册，若缺少此注册，则不会调用相关的实现类
+                builder.RegisterType<PrivateMessageFromFriendReceivedMahuaEvent>()
+                    .As<IPrivateMessageFromFriendReceivedMahuaEvent>();
+            }
+        }
+
+        private class MyApiModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+
+                // 当前平台是CQP时才注册这些扩展API
+                if (MahuaGlobal.CurrentPlatform == MahuaPlatform.Cqp)
+                {
+                    // 作者名称，既然是你实现了这个功能，那就填上你的名字吧
+                    var authorName = "Newbe36524";
+
+                    // 此方法没有CQP提供，此处将注册自己的实现
+                    builder.RegisterMahuaApi<GetFriendsApiMahuaCommandHandler, GetFriendsApiMahuaCommand, GetFriendsApiMahuaCommandResult>(authorName);
+
+                    // CQP原生也提供了此API的实现，这里注册时候将会覆盖原来的实现
+                    builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(authorName);
+                }
+
+            }
+        }
+    }
+}
+```
 
 # 集成测试
 

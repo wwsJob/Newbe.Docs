@@ -30,8 +30,33 @@ mahua: true
 
 > 不要忘记在MahuaModule中注册这个实现类
 
-<script src="https://gist.coding.net/u/pianzide1117/3d586d49497d4b13b9f1cb9c894d6c8d.js">
-</script>
+```csharp
+
+using System.Collections.Generic;
+
+namespace Newbe.Mahua.Plugins.Template
+{
+    public class MyMenuProvider : IMahuaMenuProvider
+    {
+        public IEnumerable<MahuaMenu> GetMenus()
+        {
+            return new[]
+            {
+                new MahuaMenu
+                {
+                    Id = "menu1",
+                    Text = "测试菜单1"
+                },
+                new MahuaMenu
+                {
+                    Id = "menu2",
+                    Text = "测试菜单2"
+                },
+            };
+        }
+    }
+}
+```
 
 ## 菜单处理事件
 
@@ -40,11 +65,6 @@ mahua: true
 ![新建菜单处理事件]({{ site.baseurl }}/assets/i/20171224-005.png)
 
 实现相关的业务逻辑。
-
-<script src="https://gist.coding.net/u/pianzide1117/335b1361112848ae92fd0e876733f713.js">
-</script>
-
-> 不要忘记在MahuaModule中注册这个实现类
 
 ## 启动设置中心
 

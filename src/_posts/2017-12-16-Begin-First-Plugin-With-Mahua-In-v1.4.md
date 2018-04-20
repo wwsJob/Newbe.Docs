@@ -25,7 +25,8 @@ mahua: true
 
 简单来说，使用管理员权限在cmd中运行以下命令:
 
-```cmd
+```bash
+
 powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
 ```
 
@@ -55,8 +56,43 @@ powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
 
 打开`PluginInfo.cs`文件，按照实际需求和注释内容进行修改。
 
-<script src="https://gist.coding.net/u/pianzide1117/6e52809a7eaf407d83d9b2cae50add64.js">
-</script>
+```csharp
+
+namespace Newbe.Mahua.Plugins.Parrot
+{
+    /// <summary>
+    /// 本插件的基本信息
+    /// </summary>
+    public class PluginInfo : IPluginInfo
+    {
+        /// <summary>
+        /// 版本号，建议采用 主版本.次版本.修订号 的形式
+        /// </summary>
+        public string Version { get; set; } = "1.0.0";
+
+        /// <summary>
+        /// 插件名称
+        /// </summary>
+
+        public string Name { get; set; } = "鹦鹉学舌";
+
+        /// <summary>
+        /// 作者名称
+        /// </summary>
+        public string Author { get; set; } = "Newbe";
+
+        /// <summary>
+        /// 插件Id，用于唯一标识插件产品的Id，至少包含 AAA.BBB.CCC 三个部分
+        /// </summary>
+        public string Id { get; set; } = "Newbe.Mahua.Plugins.Parrot";
+
+        /// <summary>
+        /// 插件描述
+        /// </summary>
+        public string Description { get; set; } = "鹦鹉学舌，是一个使用Mahua框架开发的第一个插件。该插件实现将好友的私聊消息回发给好友的功能。";
+    }
+}
+```
 
 # 添加"接收好友消息事件"代码实现
 
@@ -72,15 +108,94 @@ powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
 
 在`PrivateMessageFromFriendReceivedMahuaEvent.cs`中，调用`IMahuaApi`，将好友消息回发给好友，实现鹦鹉学舌的效果。
 
-<script src="https://gist.coding.net/u/pianzide1117/f04cb0d01d20419287db0c0adda4ad25.js">
-</script>
+```csharp
+
+using Newbe.Mahua.MahuaEvents;
+
+namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
+{
+    /// <summary>
+    /// 来自好友的私聊消息接收事件
+    /// </summary>
+    public class PrivateMessageFromFriendReceivedMahuaEvent
+        : IPrivateMessageFromFriendReceivedMahuaEvent
+    {
+        private readonly IMahuaApi _mahuaApi;
+
+        public PrivateMessageFromFriendReceivedMahuaEvent(
+            IMahuaApi mahuaApi)
+        {
+            _mahuaApi = mahuaApi;
+        }
+
+        public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
+        {
+            //将好友信息会发给好友
+            _mahuaApi.SendPrivateMessage(context.FromQq, context.Message);
+        }
+    }
+}
+```
 
 # 在模块中注册事件
 
 打开`MahuaModule.cs`文件，在`MahuaEventsModule`中注册刚刚添加的`PrivateMessageFromFriendReceivedMahuaEvent`。
 
-<script src="https://gist.coding.net/u/pianzide1117/43a9f8b5fec045e590fbb65695a93bd8.js">
-</script>
+```csharp
+
+using Autofac;
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Plugins.Parrot.MahuaEvents;
+
+namespace Newbe.Mahua.Plugins.Parrot
+{
+    /// <summary>
+    /// Ioc容器注册
+    /// </summary>
+    public class MahuaModule : IMahuaModule
+    {
+        public Module[] GetModules()
+        {
+            // 可以按照功能模块进行划分，此处可以改造为基于文件配置进行构造。实现模块化编程。
+            return new Module[]
+            {
+                new PluginModule(),
+                new MahuaEventsModule(),
+            };
+        }
+
+        /// <summary>
+        /// 基本模块
+        /// </summary>
+        private class PluginModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将实现类与接口的关系注入到Autofac的Ioc容器中。如果此处缺少注册将无法启动插件。
+                // 注意！！！PluginInfo是插件运行必须注册的，其他内容则不是必要的！！！
+                builder.RegisterType<PluginInfo>()
+                    .As<IPluginInfo>();
+
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IMahuaEvent"/> 事件处理模块
+        /// </summary>
+        private class MahuaEventsModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将需要监听的事件注册，若缺少此注册，则不会调用相关的实现类
+                builder.RegisterType<PrivateMessageFromFriendReceivedMahuaEvent>()
+                    .As<IPrivateMessageFromFriendReceivedMahuaEvent>();
+            }
+        }
+    }
+}
+```
 
 # 生成与打包
 

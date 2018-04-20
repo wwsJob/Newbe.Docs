@@ -10,6 +10,8 @@ author: Newbe
 # Build settings
 markdown: kramdown
 
+highlighter: rouge
+
 contentsLabel: "目录"
 
 # seo tag
