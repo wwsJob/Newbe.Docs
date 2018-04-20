@@ -39,15 +39,94 @@ Newbe.Mahua | 1.6
 
 业务接口代码如下：
 
-<script src="https://gist.coding.net/u/pianzide1117/78d8db32578d4181aba1ef03d1fff9ed.js">
-</script>
+```csharp
+
+using System;
+using System.Threading.Tasks;
+
+namespace Newbe.Mahua.Samples.Sqlite.Services
+{
+    /// <summary>
+    /// 好友消息存储
+    /// </summary>
+    public interface IFriendMessageStore
+    {
+        /// <summary>
+        /// 获取消息数量
+        /// </summary>
+        /// <returns></returns>
+        Task<int> GetCountAsync();
+
+        /// <summary>
+        /// 保存好友消息
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task InsertAsync(InsertFriendMessageInput input);
+    }
+
+    public class InsertFriendMessageInput
+    {
+        /// <summary>
+        /// QQ
+        /// </summary>
+        public string Qq { get; set; }
+
+        /// <summary>
+        /// 消息内容
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
+        /// 收到消息的事件
+        /// </summary>
+        public DateTimeOffset ReceivedTime { get; set; }
+    }
+}
+```
 
 在`MahuaEvents`下添加"好友消息接收事件"，并在事件内调用业务逻辑。实现代码如下：
 
 > MahuaEvents文件夹是本SDK建议将事件放置的文件夹位置。也可以不接受建议而添加在其他地方。
 
-<script src="https://gist.coding.net/u/pianzide1117/9aac8a1c992044bfbc6e8b842372c3da.js">
-</script>
+```csharp
+
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.Services;
+
+namespace Newbe.Mahua.Samples.Sqlite.MahuaEvents
+{
+    /// <summary>
+    /// 来自好友的私聊消息接收事件
+    /// </summary>
+    public class PrivateMessageFromFriendReceivedMahuaEvent
+        : IPrivateMessageFromFriendReceivedMahuaEvent
+    {
+        private readonly IMahuaApi _mahuaApi;
+        private readonly IFriendMessageStore _friendMessageStore;
+
+        public PrivateMessageFromFriendReceivedMahuaEvent(
+            IMahuaApi mahuaApi,
+            IFriendMessageStore friendMessageStore)
+        {
+            _mahuaApi = mahuaApi;
+            _friendMessageStore = friendMessageStore;
+        }
+
+        public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
+        {
+            _friendMessageStore.InsertAsync(new InsertFriendMessageInput
+            {
+                Message = context.Message,
+                Qq = context.FromQq,
+                ReceivedTime = context.SendTime
+            }).GetAwaiter().GetResult();
+            var count = _friendMessageStore.GetCountAsync().GetAwaiter().GetResult();
+            _mahuaApi.SendPrivateMessage(context.FromQq, $"存储中已经存在{count}条好友信息。");
+        }
+    }
+}
+```
 
 至此业务逻辑便实现完毕。
 
@@ -59,8 +138,58 @@ Newbe.Mahua | 1.6
 
 此处只将业务逻辑的关键测试代码展示出来：
 
-<script src="https://gist.coding.net/u/pianzide1117/f1e546c39bad4a6fbc855e1fb6d7302d.js">
-</script>
+```csharp
+
+using Autofac.Extras.Moq;
+using FluentAssertions;
+using Moq;
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.Services;
+using System;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Newbe.Mahua.Samples.Sqlite.Tests
+{
+    public class PrivateMessageFromFriendReceivedMahuaEventTests
+    {
+        [Fact]
+        public void Test()
+        {
+            using (var mocker = AutoMock.GetStrict())
+            {
+                mocker.VerifyAll = true;
+
+                var now = DateTime.Now;
+                var msg = string.Empty;
+
+                mocker.Mock<IMahuaApi>()
+                    .Setup(x => x.SendPrivateMessage("472158246", It.IsAny<string>()))
+                    .Callback<string, string>((qq, inputmsg) => msg = inputmsg);
+
+                mocker.Mock<IFriendMessageStore>()
+                    .Setup(x => x.InsertAsync(It.IsAny<InsertFriendMessageInput>()))
+                    .Returns(Task.FromResult(0));
+
+                mocker.Mock<IFriendMessageStore>()
+                    .Setup(x => x.GetCountAsync())
+                    .Returns(Task.FromResult(200));
+
+                var service = mocker.Create<PrivateMessageFromFriendReceivedMahuaEvent>();
+                service.ProcessFriendMessage(new PrivateMessageFromFriendReceivedContext
+                {
+                    FromQq = "472158246",
+                    Message = "MSG",
+                    SendTime = now
+                });
+
+                msg.Should().Be("存储中已经存在200条好友信息。");
+            }
+        }
+    }
+}
+```
 
 # 数据库操作实现
 
@@ -78,8 +207,28 @@ Newbe.Mahua | 1.6
 
 数据库操作接口定义如下：
 
-<script src="https://gist.coding.net/u/pianzide1117/b1a09237e10c4ad991660acb1d9674bb.js">
-</script>
+```csharp
+
+using System.Data.Common;
+using System.Threading.Tasks;
+
+namespace Newbe.Mahua.Samples.Sqlite.Services
+{
+    public interface IDbHelper
+    {
+        /// <summary>
+        /// 初始化数据库
+        /// </summary>
+        Task InitDbAsync();
+
+        /// <summary>
+        /// 获取数据库链接
+        /// </summary>
+        /// <returns></returns>
+        Task<DbConnection> CreateDbConnectionAsync();
+    }
+}
+```
 
 ## 使用SQLite实现数据库操作
 
@@ -99,13 +248,93 @@ SQLite数据库操作，通过官方提供的类库便可以完成。
 
 在应用程序配置文件中配置以下内容：
 
-<script src="https://gist.coding.net/u/pianzide1117/b1c07f041151475a853d8003eb97c7f7.js">
-</script>
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <connectionStrings>
+    <!--
+    数据库链接字符串
+    DataDirectory需要从当前的应用程序域上下文中获取，可以通过以下代码进行设置：
+    AppDomain.CurrentDomain.SetData("DataDirectory",Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data"))
+    -->
+    <add name="Default" connectionString="Data Source=|DataDirectory|\mydb.db;Pooling=true;FailIfMissing=false" />
+  </connectionStrings>
+  <system.data>
+    <DbProviderFactories>
+      <!--配置ado.net数据工厂-->
+      <remove invariant="System.Data.SQLite" />
+      <add name="SQLite Data Provider" invariant="System.Data.SQLite"
+           description=".NET Framework Data Provider for SQLite"
+           type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
+    </DbProviderFactories>
+  </system.data>
+</configuration>
+```
 
 添加数据库操作实现类`SqliteDbHelper`,详细代码如下：
 
-<script src="https://gist.coding.net/u/pianzide1117/b40b418f89474f2788a118029844b493.js">
-</script>
+```csharp
+
+using Dapper;
+using System;
+using System.Configuration;
+using System.Data.Common;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace Newbe.Mahua.Samples.Sqlite.Services.Impl
+{
+    internal class SqliteDbHelper : IDbHelper
+    {
+        public Task InitDbAsync()
+        {
+            return Task.Run(() => CreateDbIfnotExists());
+        }
+
+        public Task<DbConnection> CreateDbConnectionAsync()
+        {
+            return Task.Run(() => CreateDbConnectionCore());
+        }
+
+        private static DbConnection CreateDbConnectionCore()
+        {
+            var dbf = DbProviderFactories.GetFactory("System.Data.SQLite");
+            var conn = dbf.CreateConnection();
+            Debug.Assert(conn != null, nameof(conn) + " != null");
+            conn.ConnectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+            return conn;
+        }
+
+        private static void CreateDbIfnotExists()
+        {
+            var dbDirectory = (string)AppDomain.CurrentDomain.GetData("DataDirectory");
+            if (!Directory.Exists(dbDirectory))
+            {
+                Directory.CreateDirectory(dbDirectory);
+            }
+
+            var dbfile = Path.Combine(dbDirectory, "mydb.db");
+            if (!File.Exists(dbfile))
+            {
+                SQLiteConnection.CreateFile(dbfile);
+                using (var conn = CreateDbConnectionCore())
+                {
+                    conn.Execute(@" CREATE TABLE MSG(
+                        Id TEXT PRIMARY KEY  ,
+                        Qq           TEXT    NOT NULL,
+                        Message            TEXT     NOT NULL,
+                        ReceivedTime       TEXT NOT NULL
+                        )");
+                }
+            }
+        }
+    }
+}
+```
 
 ## 编写业务实现类
 
@@ -113,8 +342,62 @@ SQLite数据库操作，通过官方提供的类库便可以完成。
 
 添加`FriendMessageStore`类，详细代码如下：
 
-<script src="https://gist.coding.net/u/pianzide1117/0d9c3cc90ff44de9920cbcfcc7fc7154.js">
-</script>
+```csharp
+
+using Dapper;
+using Dapper.Contrib.Extensions;
+using System;
+using System.Threading.Tasks;
+
+namespace Newbe.Mahua.Samples.Sqlite.Services.Impl
+{
+    /// <inheritdoc />
+    /// <summary>
+    /// 通过数据库实现好友信息存储
+    /// </summary>
+    internal class FriendMessageStore : IFriendMessageStore
+    {
+        private readonly IDbHelper _dbHelper;
+
+        public FriendMessageStore(IDbHelper dbHelper)
+        {
+            _dbHelper = dbHelper;
+        }
+
+        public async Task<int> GetCountAsync()
+        {
+            using (var conn = await _dbHelper.CreateDbConnectionAsync())
+            {
+                var count = await conn.ExecuteScalarAsync<int>("select count(1) from MSG");
+                return count;
+            }
+        }
+
+        public async Task InsertAsync(InsertFriendMessageInput input)
+        {
+            using (var conn = await _dbHelper.CreateDbConnectionAsync())
+            {
+                await conn.InsertAsync(new MessageEntity
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Message = input.Message,
+                    Qq = input.Qq,
+                    ReceivedTime = input.ReceivedTime.ToString("s")
+                });
+            }
+        }
+
+        [Table("MSG")]
+        public class MessageEntity
+        {
+            [Key] public string Id { get; set; }
+            public string Qq { get; set; }
+            public string Message { get; set; }
+            public string ReceivedTime { get; set; }
+        }
+    }
+}
+```
 
 ## 在插件启动时初始化数据库
 
@@ -124,15 +407,117 @@ SQLite数据库操作，通过官方提供的类库便可以完成。
 
 > MahuaEvents文件夹是本SDK建议将事件放置的文件夹位置。也可以不接受建议而添加在其他地方。
 
-<script src="https://gist.coding.net/u/pianzide1117/b3c0531b395c4045b44566d8fb03c7d2.js">
-</script>
+```csharp
+
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.Services;
+
+namespace Newbe.Mahua.Samples.Sqlite.MahuaEvents
+{
+    /// <summary>
+    /// 插件初始化事件
+    /// </summary>
+    public class InitializationMahuaEvent
+        : IInitializationMahuaEvent
+    {
+        private readonly IDbHelper _dbHelper;
+
+        public InitializationMahuaEvent(
+            IDbHelper dbHelper)
+        {
+            _dbHelper = dbHelper;
+        }
+
+        public void Initialized(InitializedContext context)
+        {
+            // 插件初始化时，初始化数据库
+            // 此处采用异步操作，可以避免插件初始化超时的问题
+            _dbHelper.InitDbAsync();
+        }
+    }
+}
+```
 
 # 模块注册
 
 以上所有的接口与实现类与接口，都不要忘记在模块中进行注册，以下是`MahuaModule`的完整代码：
 
-<script src="https://gist.coding.net/u/pianzide1117/5ea6037102fb408ebf39c62c3f9c016e.js">
-</script>
+```csharp
+
+using Autofac;
+using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.MahuaEvents;
+using Newbe.Mahua.Samples.Sqlite.Services;
+using Newbe.Mahua.Samples.Sqlite.Services.Impl;
+using System;
+using System.IO;
+
+namespace Newbe.Mahua.Samples.Sqlite
+{
+    /// <summary>
+    /// Ioc容器注册
+    /// </summary>
+    public class MahuaModule : IMahuaModule
+    {
+        public Module[] GetModules()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory",
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data"));
+
+            // 可以按照功能模块进行划分，此处可以改造为基于文件配置进行构造。实现模块化编程。
+            return new Module[]
+            {
+                new PluginModule(),
+                new MahuaEventsModule(),
+                new MyServiceModule()
+            };
+        }
+
+        /// <summary>
+        /// 基本模块
+        /// </summary>
+        private class PluginModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将实现类与接口的关系注入到Autofac的Ioc容器中。如果此处缺少注册将无法启动插件。
+                // 注意！！！PluginInfo是插件运行必须注册的，其他内容则不是必要的！！！
+                builder.RegisterType<PluginInfo>()
+                    .As<IPluginInfo>();
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IMahuaEvent"/> 事件处理模块
+        /// </summary>
+        private class MahuaEventsModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                // 将需要监听的事件注册，若缺少此注册，则不会调用相关的实现类
+                builder.RegisterType<PrivateMessageFromFriendReceivedMahuaEvent>()
+                    .As<IPrivateMessageFromFriendReceivedMahuaEvent>();
+                builder.RegisterType<InitializationMahuaEvent>()
+                    .As<IInitializationMahuaEvent>();
+            }
+        }
+
+        private class MyServiceModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<FriendMessageStore>()
+                    .As<IFriendMessageStore>();
+                builder.RegisterType<SqliteDbHelper>()
+                    .As<IDbHelper>();
+            }
+        }
+    }
+}
+```
 
 # 集成测试
 
