@@ -32,5 +32,5 @@
   }
 }
 
-
-.highlight pre { background-color: black;}
+/**rouge背景*/
+.highlight pre { background-color: #394034;}

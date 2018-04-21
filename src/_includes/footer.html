@@ -49,6 +49,18 @@
     </div>
   </div>
 </div>
+<div class="am-modal am-modal-confirm" tabindex="-1" id="giftone-confirm">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">邀您体验</div>
+    <div class="am-modal-bd">
+      限时特惠，现在接受邀请获得QQ机器人免费体验卡！
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn am-btn-primary" data-am-modal-confirm>OJBK</span>
+      <span class="am-modal-btn" data-am-modal-confirm>就去</span>
+    </div>
+  </div>
+</div>
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <!--<![endif]-->
@@ -97,6 +109,25 @@
         }
       }, 2000);
     })();
+
+    // giftOne
+    (function() {
+      var key = "giftone"
+      var loaded = sessionStorage.getItem(key);
+      if (!loaded) {
+        window.setTimeout(function() {
+          $('#giftone-confirm').modal({
+            relatedTarget: this,
+            onConfirm: function(options) {
+              window.open("https://gift.one/i/WIfNmG");
+              var loaded = sessionStorage.setItem(key,"loaded");
+            },
+            onCancel: function() {}
+          });
+        }, 10000);
+      }
+    })();
+
 
     // 目录
     (function() {
