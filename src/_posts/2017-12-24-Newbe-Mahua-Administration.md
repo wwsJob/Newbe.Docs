@@ -66,6 +66,42 @@ namespace Newbe.Mahua.Plugins.Template
 
 实现相关的业务逻辑。
 
+```csharp
+
+
+using Newbe.Mahua.MahuaEvents;
+using System.Diagnostics;
+
+namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
+{
+    /// <summary>
+    /// 菜单点击事件
+    /// </summary>
+    public class MahuaMenuClickedMahuaEvent
+        : IMahuaMenuClickedMahuaEvent
+    {
+        private readonly IMahuaApi _mahuaApi;
+
+        public MahuaMenuClickedMahuaEvent(
+            IMahuaApi mahuaApi)
+        {
+            _mahuaApi = mahuaApi;
+        }
+
+        public void ProcessManhuaMenuClicked(MahuaMenuClickedContext context)
+        {
+            // context.Menu 被选中到底菜单
+            ShowNewbe();
+        }
+
+        private static void ShowNewbe()
+        {
+            Process.Start("http://www.newbe.pro");
+        }
+    }
+}
+```
+
 ## 启动设置中心
 
 不同的平台点击不同的按钮来启动设置中心。
