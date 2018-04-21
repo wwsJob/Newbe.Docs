@@ -1,15 +1,17 @@
 ---
 layout: post
-title: 开始第一个QQ机器人【适用于v1.4-1.7】
+title: 开始第一个QQ机器人【适用于v1.8及以上】
 categories: Docs Mahua
 tags: Mahua CQP Amanda MPQ SDK
+top: true
+mahua: true
 ---
 
-本示例将会使用"鹦鹉学舌"这个小插件的实现来演示如何使用`Newbe.Mahua`实现第一个机器人插件。
+本示例将会使用"嘤鹉学舌"这个小插件的实现来演示如何使用`Newbe.Mahua`实现第一个机器人插件。
 
 # 插件功能
 
-自动将发送者的消息回发给发送人，鹦鹉（英文：Parrot）学舌。
+自动将发送者的消息回发给发送人，嘤鹉（Parrot，其实是说嘤嘤嘤怪）学舌。
 
 # 开发环境要求
 
@@ -72,7 +74,7 @@ namespace Newbe.Mahua.Plugins.Parrot
         /// 插件名称
         /// </summary>
 
-        public string Name { get; set; } = "鹦鹉学舌";
+        public string Name { get; set; } = "嘤鹉学舌";
 
         /// <summary>
         /// 作者名称
@@ -87,7 +89,7 @@ namespace Newbe.Mahua.Plugins.Parrot
         /// <summary>
         /// 插件描述
         /// </summary>
-        public string Description { get; set; } = "鹦鹉学舌，是一个使用Mahua框架开发的第一个插件。该插件实现将好友的私聊消息回发给好友的功能。";
+        public string Description { get; set; } = "嘤鹉学舌，是一个使用Mahua框架开发的第一个插件。该插件实现将好友的私聊消息回发给好友的功能。";
     }
 }
 ```
@@ -104,7 +106,7 @@ namespace Newbe.Mahua.Plugins.Parrot
 
 ![新建好友消息处理事件]({{ site.baseurl }}/assets/i/20171217-001.png)
 
-在`PrivateMessageFromFriendReceivedMahuaEvent.cs`中，调用`IMahuaApi`，将好友消息回发给好友，实现鹦鹉学舌的效果。
+在`PrivateMessageFromFriendReceivedMahuaEvent.cs`中，调用`IMahuaApi`，将好友消息回发给好友，实现嘤鹉学舌的效果。
 
 ```csharp
 
@@ -128,8 +130,17 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 
         public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
         {
-            //将好友信息会发给好友
-            _mahuaApi.SendPrivateMessage(context.FromQq, context.Message);
+          // 戳一戳
+          _mahuaApi.SendPrivateMessage(context.FromQq)
+              .Shake()
+              .Done();
+
+          // 嘤嘤嘤，换行，重复消息
+          _mahuaApi.SendPrivateMessage(context.FromQq)
+              .Text("嘤嘤嘤：")
+              .Newline()
+              .Text(context.Message)
+              .Done();
         }
     }
 }
@@ -205,7 +216,7 @@ namespace Newbe.Mahua.Plugins.Parrot
 
 在`bin`目录下会按照当前安装的平台生成相应的目录。本示例将会生成CQP、Amanda和MPQ三个目录。
 
-分别将三个目录中的文件复制到对应的**机器人平台根目录**。
+**分别将三个文件夹下的所有文件和文件夹都复制到对应的机器人平台根目录**。
 
 各机器人软件下载地址：
 
