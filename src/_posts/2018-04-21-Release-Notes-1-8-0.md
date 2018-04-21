@@ -74,6 +74,10 @@ _mahuaApi.SendGroupMessage("610394020")
     .Done();
 ```
 
+## 采用消息发送Fluent API重写了开发文档
+
+初步教学文档"鹦鹉学舌插件教学"全面升级，新版的"嘤鹉学舌"更加详细。[马上点击学习](/docs/mahua/2018/04/21/Begin-First-Plugin-With-Mahua-In-v1.8.html)
+
 # 升级注意
 
 从 1.7 版本直接更新全部的 Newbe.Mahua.* nuget 包，重新生成便可以。
