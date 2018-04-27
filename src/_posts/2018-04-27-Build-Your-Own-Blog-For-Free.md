@@ -18,10 +18,4 @@ top: true
 - docker
 - markdown
 
-# 教程链接
-
-- 免费构建自己的博客-环境安装
-- 免费构建自己的博客-编写第一篇博客
-- 免费构建自己的博客-博客管理与发布
-- 免费构建自己的博客-Jekyll进阶
-- 免费构建自己的博客-进一步丰富博客
+{% include Nav-Build-Your-Own-Blog-For-Free.md %}
