@@ -88,11 +88,71 @@ Docker 可以让你在一个隔离的环境中安装你需要的软件，而不�
 
 ## 启用Hyper-v
 
+Hyper-v 是 Windows 操作系统原生提供的虚拟化软件。
+
+该软件在 Windows 10 Pro 和 Enterprise ，以及 Windows Server 2016 上都可以开启。~~是的，家庭版还是别折腾了~~
+
+以下是在 Windows 10 Pro 上的操作步骤：
+
+按下`Win+X`，然后按下`A`，从而以管理员身份启动控制台或PowerShell。
+
+输入以下命令，并回车：
+
+```bash
+
+dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+```
+
+经过一段时间的等待之后，要求重新启动计算机，选择Y。
+
+**如果你是一步一步看教程做的，记得要先把本站点加入收藏夹，防止重启之后找不到哟。**
+
 ## 安装Docker For Windows
 
-## 设置国内Docker镜像(mirror)
+### 下载
+
+Docker For Windows 是在 Windows 10 上运行 Docker 的必要组件。
+
+可以通过官网链接下载最新的版本：<https://store.docker.com/editions/community/docker-ce-desktop-windows>
+
+{% include into-common-group.md %}
+
+### 安装
+
+双击下载完成的安装程序，不断下一步即可。不需要特殊处理。
+
+安装完毕后，可以通过开始菜单，启动 Docker For Windows。
+
+![开始菜单启动Docker]({{ site.baseurl }}/assets/i/20180428-025.png)
+
+启动完成之后，可以在任务栏中看到相应的小鲸鱼。
+
+![神秘小鲸鱼]({{ site.baseurl }}/assets/i/20180428-026.png)
+
+## 设置国内Docker加速器
+
+由于国内网络的特殊性，在使用 Docker 的时候需要配置一下国内的加速器。
+
+有以下几种：
+
+- daocloud <https://www.daocloud.io/mirror#accelerator-doc>
+- 阿里云 <https://cr.console.aliyun.com/#/accelerator>
+
+根据相关的网站说明，获取你专属的加速器地址。然后便可以配置在刚刚安装好的Docker中。
+
+进入 Docker 的设置界面。
+
+![点击Docker的设置按钮]({{ site.baseurl }}/assets/i/20180428-027.png)
+
+在下图位置，设置你的加速器地址。
+
+![配置加速器]({{ site.baseurl }}/assets/i/20180428-028.png)
+
+点击确认，稍等一下，便完成了设置。
 
 ## 尝试启动
+
+TODO
 
 # Git Extensions
 
@@ -110,6 +170,8 @@ Git Extensions 是一个开源项目，软件本体发布在Github上，可以�
 
 ## 安装
 
+开始安装GitExtensions
+
 ![安装GitExtensions03]({{ site.baseurl }}/assets/i/20180428-003.png)
 
 ![安装GitExtensions04]({{ site.baseurl }}/assets/i/20180428-004.png)
@@ -125,6 +187,8 @@ Git Extensions 是一个开源项目，软件本体发布在Github上，可以�
 ![安装GitExtensions09]({{ site.baseurl }}/assets/i/20180428-009.png)
 
 ![安装GitExtensions10]({{ site.baseurl }}/assets/i/20180428-010.png)
+
+中间~~强势~~插入安装Git For Windows
 
 ![安装GitExtensions11]({{ site.baseurl }}/assets/i/20180428-011.png)
 
@@ -142,6 +206,8 @@ Git Extensions 是一个开源项目，软件本体发布在Github上，可以�
 
 ![安装GitExtensions18]({{ site.baseurl }}/assets/i/20180428-018.png)
 
+中间~~强势~~插入安装KDiff3
+
 ![安装GitExtensions19]({{ site.baseurl }}/assets/i/20180428-019.png)
 
 ![安装GitExtensions20]({{ site.baseurl }}/assets/i/20180428-020.png)
@@ -153,5 +219,7 @@ Git Extensions 是一个开源项目，软件本体发布在Github上，可以�
 ![安装GitExtensions23]({{ site.baseurl }}/assets/i/20180428-023.png)
 
 ![安装GitExtensions24]({{ site.baseurl }}/assets/i/20180428-024.png)
+
+整个安装过程结束
 
 {% include Nav-Build-Your-Own-Blog-For-Free.md %}
