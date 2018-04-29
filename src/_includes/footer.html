@@ -71,7 +71,8 @@
 <![endif]-->
 <script src="https://cdn.bootcss.com/jquery.pin/1.0.1/jquery.pin.js"></script>
 <script>
-$.each($(".blog-content img"), function(i, el) {
+// 博文内容的图片添加预览功能
+$.each($(".am-article-bd img"), function(i, el) {
     $(el).before($('<figure data-am-widget="figure" class="am am-figure am-figure-default" data-am-figure="{ pureview: \'true\' }">').append($(el)[0].outerHTML));
     $(el).remove();
 });

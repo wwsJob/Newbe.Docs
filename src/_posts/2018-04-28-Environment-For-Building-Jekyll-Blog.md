@@ -152,7 +152,33 @@ Docker For Windows 是在 Windows 10 上运行 Docker 的必要组件。
 
 ## 尝试启动
 
-TODO
+Docker 安装成功之后，可以采用以下方式启动第一个 Docker 应用。
+
+nginx 是常见的一种Web软件。官方提供了linux版本和Windows版本，今天，我们则可以使用Docker，快速的安装一个nginx。
+
+按下`Win+X`，然后按下`A`，从而以管理员身份启动控制台或PowerShell。
+
+输入以下命令，并回车：
+
+```bash
+
+docker run  -d -p 8656:80 --name nginx nginx
+```
+
+等待一段时间之后，将会nginx就下载完了，并且启动运行，过程图示如下：
+
+![配置加速器]({{ site.baseurl }}/assets/i/20180428-029.png)
+
+接下在，继续运行以下命令，便可以成功看到刚刚启动的nginx界面。
+
+```bash
+
+start http://127.0.0.1:8656
+```
+
+![配置加速器]({{ site.baseurl }}/assets/i/20180428-030.png)
+
+就此，Docker就已经能够在开发环境上正常运行了。
 
 # Git Extensions
 
@@ -220,6 +246,8 @@ Git Extensions 是一个开源项目，软件本体发布在Github上，可以�
 
 ![安装GitExtensions24]({{ site.baseurl }}/assets/i/20180428-024.png)
 
-整个安装过程结束
+# 总结
+
+就此，本系列需要用的主要软件就已经安装完毕了，若安装过程中出现问题，{% include into-common-group.md %}。
 
 {% include Nav-Build-Your-Own-Blog-For-Free.md %}
