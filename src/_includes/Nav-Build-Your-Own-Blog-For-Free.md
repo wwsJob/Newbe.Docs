@@ -1,6 +1,6 @@
 =========================更多内容分割线=========================
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
 
 {% if post.NavBuildYourOwnBlogForFree != true %} {% continue %} {% endif %}
 
