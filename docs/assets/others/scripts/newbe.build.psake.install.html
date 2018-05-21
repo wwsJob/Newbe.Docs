@@ -1,0 +1,7 @@
+﻿New-Item buildTools -ItemType Directory -ErrorAction SilentlyContinue
+Invoke-WebRequest http://www.newbe.pro/assets/others/nuget.exe -o .\buildTools\nuget.exe 
+Remove-Item packages\newbe.build.psake.* -Force -Recurse -ErrorAction SilentlyContinue
+Remove-Item packages\psake.* -Force -Recurse -ErrorAction SilentlyContinue
+.\buildTools\nuget.exe install newbe.build.psake -o packages
+Copy-Item -Path packages\newbe.build.psake.*\content\* -Destination . -Recurse  
+
