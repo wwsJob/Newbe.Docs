@@ -1,6 +1,3 @@
 [submodule "src/modules/jekyll-toc-generator"]
 	path = src/modules/jekyll-toc-generator
 	url = https://github.com/dafi/jekyll-toc-generator.git
-[submodule "src/modules/docker-github-pages"]
-	path = src/modules/docker-github-pages
-	url = https://github.com/Starefossen/docker-github-pages.git
