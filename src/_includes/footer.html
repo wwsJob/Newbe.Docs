@@ -49,11 +49,11 @@
     </div>
   </div>
 </div>
-<div class="am-modal am-modal-confirm" tabindex="-1" id="giftone-confirm">
+<div class="am-modal am-modal-confirm" tabindex="-1" id="setup-blog-confirm">
   <div class="am-modal-dialog">
-    <div class="am-modal-hd">邀您体验</div>
+    <div class="am-modal-hd">也想称为大佬？</div>
     <div class="am-modal-bd">
-      限时特惠，现在接受邀请获得QQ机器人免费体验卡！
+      现在就来尝试一下建立属于你自己的博客吧！
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn am-btn-primary" data-am-modal-confirm>OJBK</span>
@@ -119,14 +119,14 @@ $.each($(".am-article-bd img"), function(i, el) {
 
     // giftOne
     (function() {
-      var key = "giftone"
+      var key = "setup-blog"
       var loaded = sessionStorage.getItem(key);
       if (!loaded) {
         window.setTimeout(function() {
-          $('#giftone-confirm').modal({
+          $('#setup-blog-confirm').modal({
             relatedTarget: this,
             onConfirm: function(options) {
-              window.open("https://gift.one/i/WIfNmG");
+              window.open("http://www.newbe.pro/web/2018/04/27/Build-Your-Own-Blog-For-Free.html");
               var loaded = sessionStorage.setItem(key,"loaded");
             },
             onCancel: function() {}
@@ -134,6 +134,8 @@ $.each($(".am-article-bd img"), function(i, el) {
         }, 10000);
       }
     })();
+
+
 
 
     // 目录
