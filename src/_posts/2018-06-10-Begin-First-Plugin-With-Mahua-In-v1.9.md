@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 开始第一个QQ机器人【适用于v1.8】
+title: 开始第一个QQ机器人【适用于v1.9及以上】
 categories: Docs Mahua
 tags: Mahua CQP Amanda MPQ SDK
 top: true
-mahua: false
+mahua: true
 ---
 
 本示例将会使用"嘤鹉学舌"这个小插件的实现来演示如何使用`Newbe.Mahua`实现第一个机器人插件。
@@ -111,6 +111,7 @@ namespace Newbe.Mahua.Plugins.Parrot
 ```csharp
 
 using Newbe.Mahua.MahuaEvents;
+using System.Threading.Tasks;
 
 namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 {
@@ -141,6 +142,16 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
               .Newline()
               .Text(context.Message)
               .Done();
+
+          // 异步发送消息，不能使用 _mahuaApi 实例，需要另外开启Session
+         Task.Factory.StartNew(() =>
+         {
+             using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+             {
+                 var api = robotSession.MahuaApi;
+                 api.SendPrivateMessage(context.FromQq, "异步的嘤嘤嘤");
+             }
+         });
         }
     }
 }
