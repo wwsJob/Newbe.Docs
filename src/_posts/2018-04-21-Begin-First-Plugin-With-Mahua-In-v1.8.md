@@ -3,7 +3,6 @@ layout: post
 title: 开始第一个QQ机器人【适用于v1.8】
 categories: Docs Mahua
 tags: Mahua CQP Amanda MPQ SDK
-top: true
 mahua: false
 ---
 

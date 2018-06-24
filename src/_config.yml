@@ -33,4 +33,4 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
-  # - jekyll-minifier
+  - jekyll-minifier
