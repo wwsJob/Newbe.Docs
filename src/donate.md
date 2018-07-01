@@ -20,21 +20,9 @@ excerpt: 借一步说话
 
 <https://portal.qiniu.com/signup?code=3lh1xg5arudea>{:target='_blank'}
 
-## 送点糖果
+<!-- ## 送点糖果 全球最大加密货币空投组织Gift.ONE正在空投Token！ 目前1GIFT = US$0.2，注册即送100GIFT 参加活动更有机会抢100000GIFT 点击下面链接快速抢: <https://gift.one/i/WIfNmG> 【每天还有机会抽iPhoneX,BTC,ETH,EOS,GIFT等奖品】 -->
 
-全球最大加密货币空投组织Gift.ONE正在空投Token！
-
-目前1GIFT = US$0.2，注册即送100GIFT
-
-参加活动更有机会抢100000GIFT
-
-点击下面链接快速抢:
-
-<https://gift.one/i/WIfNmG>
-
-【每天还有机会抽iPhoneX,BTC,ETH,EOS,GIFT等奖品】
-
-## 阿里云
+ ## 阿里云
 
 通过以下链接，领取优惠券，并购买阿里云的产品。本站长将获得一定返利，可用于支付本站域名的年费。
 
