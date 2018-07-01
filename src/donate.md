@@ -54,11 +54,11 @@ excerpt: 借一步说话
 
 ## 支付宝
 
-![支付宝]({{ site.baseurl }}/assets/i/zhifubao.jpg){:height="600px" width="400px"}
+![支付宝]({{ site.baseurl }}/assets/i/zhifubao.jpg)
 
 ## 微信
 
-![微信]({{ site.baseurl }}/assets/i/weixin.png){:height="400px" width="400px"}
+![微信]({{ site.baseurl }}/assets/i/weixin.png)
 
 ## 开源中国
 
