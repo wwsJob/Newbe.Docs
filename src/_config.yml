@@ -19,7 +19,7 @@ logo: /assets/i/logo.png
 social:
   name: Newbe
   links:
-    - https://github.com/Newbe36524/
+    - https://github.com/newbe36524/
     - https://gitee.com/yks
     - https://user.qzone.qq.com/472158246
     - https://weibo.com/newbe36524
@@ -33,4 +33,4 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
-  - jekyll-minifier
+  # - jekyll-minifier

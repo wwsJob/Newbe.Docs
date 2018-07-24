@@ -42,7 +42,7 @@
 }
 .lw-sidebar .am-list li a {
     color:black;
-    
+
 }
 @media only screen and (min-width: 641px) {
   .lw-sidebar {
@@ -121,7 +121,7 @@ body {
     text-align:center;
 }
 .log-button {
-    background-color:transparent;   
+    background-color:transparent;
     border-radius:8px;
     border:2px solid #ffffff;
     display:inline-block;
@@ -154,7 +154,7 @@ body {
     background: url(http://s.amazeui.org/media/i/brand/amazeui-w.png) left center no-repeat;
     background-size: 125px 24px;
 }
-.log-header:hover {  
+.log-header:hover {
     height: 50px;
     width: 165px;
     margin-left:10%;
@@ -207,10 +207,10 @@ body {
 
 
 /**
- * blog css 
- * a:hover: #10D07A 
- * 基本色：#333 
- * 或者 #3d3d3d   
+ * blog css
+ * a:hover: #10D07A
+ * 基本色：#333
+ * 或者 #3d3d3d
  * bgcolor：#10D07A  ， color：#fff
  * blog-color  单独的颜色突出
  * .blog-bor    border:1px solid #e5e5e5
@@ -269,7 +269,7 @@ a {
     text-align:center;
 }
 .am-topbar-nav>li>a:hover:after {
-     opacity: 0; 
+     opacity: 0;
 }
 @media only screen and (min-width: 641px) {
 .am-topbar-nav>li.am-active>a:after {
@@ -388,7 +388,7 @@ h1 span{
 }
 /**
  * blog-article-sidebar
- * 
+ *
  */
 
 .blog-article-p {
@@ -396,12 +396,12 @@ h1 span{
 }
 .blog-author-img {
     width:8rem;
-    height:8rem;    
+    height:8rem;
 }
 @media only screen and (max-width:641px) {
     .blog-author-img {
     width:6rem;
-    height:6rem;    
+    height:6rem;
     }
 }
 .blog-article-margin {
@@ -438,7 +438,7 @@ h1 span{
 }
 /**
  * bug:
- * width:100%; height:100%; 
+ * width:100%; height:100%;
  * margin: 1% 或者 1rem ;
  * 此处的定位出现问题。
  */
@@ -455,7 +455,7 @@ h1 span{
 .img-layout {
     width:300px;
     height:200px;
-    
+
 }
 
 #container {
